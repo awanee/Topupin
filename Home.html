@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topupin - Halaman Utama</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="flex justify-between items-center bg-gray-900 p-4">
+    <h1 class="text-xl font-bold text-green-400">Topup<span class="text-white">in</span></h1>
+    <div class="flex items-center space-x-2">
+      <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-black">
+      <button class="bg-white text-black px-2 py-1 rounded">🔍</button>
+      <button>🛒</button>
+      <button>Akun saya</button>
+    </div>
+  </header>
+
+  <!-- Carousel (placeholder image) -->
+  <div class="relative overflow-hidden">
+    <img src="/mnt/data/3b03d1bc-a2eb-4d78-afc2-bad0eb71992c.png" alt="Banner" class="w-full h-52 object-cover">
+    <div class="absolute bottom-2 w-full flex justify-center space-x-2">
+      <span class="w-2 h-2 bg-white rounded-full"></span>
+      <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
+    </div>
+  </div>
+
+  <!-- Kategori -->
+  <div class="flex justify-center gap-2 mt-4">
+    <button class="bg-lime-400 text-black px-4 py-2 rounded font-bold">SEMUA</button>
+    <button class="bg-gray-800 px-4 py-2 rounded">TOP UP</button>
+    <button class="bg-gray-800 px-4 py-2 rounded">AKUN</button>
+    <button class="bg-gray-800 px-4 py-2 rounded">ITEM</button>
+    <button class="bg-gray-800 px-4 py-2 rounded">JASA JOKI</button>
+  </div>
+
+  <!-- Flash Sale -->
+  <div class="px-4 mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-xl font-bold">FLASHSALE</h2>
+      <span class="bg-lime-400 text-black px-2 py-1 rounded font-mono text-sm" id="countdown">0:22:40:32</span>
+    </div>
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <div class="bg-gray-800 p-2 rounded relative">
+        <img src="https://via.placeholder.com/300x150" alt="produk" class="w-full rounded">
+        <span class="absolute top-2 right-2 bg-red-600 text-xs px-2 py-1 rounded">Tersisa: 8</span>
+        <div class="mt-2">
+          <p>7300 VP</p>
+          <p class="line-through text-sm text-gray-400">875.200</p>
+          <p class="font-bold text-lg text-blue-300">754.554</p>
+        </div>
+      </div>
+      <div class="bg-gray-800 p-2 rounded relative">
+        <img src="https://via.placeholder.com/300x150" alt="produk" class="w-full rounded">
+        <span class="absolute top-2 right-2 bg-red-600 text-xs px-2 py-1 rounded">Tersisa: 8</span>
+        <div class="mt-2">
+          <p>7300 VP</p>
+          <p class="line-through text-sm text-gray-400">875.200</p>
+          <p class="font-bold text-lg text-blue-300">754.554</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Populer -->
+  <div class="px-4 mt-6">
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-bold">GAME POPULER</h2>
+      <a href="#" class="text-lime-400 font-bold">Lihat semua</a>
+    </div>
+    <div class="flex gap-4 overflow-x-auto mt-4 scrollbar-hidden">
+      <img src="https://via.placeholder.com/80" class="rounded" alt="game">
+      <img src="https://via.placeholder.com/80" class="rounded" alt="game">
+      <img src="https://via.placeholder.com/80" class="rounded" alt="game">
+      <img src="https://via.placeholder.com/80" class="rounded" alt="game">
+      <img src="https://via.placeholder.com/80" class="rounded" alt="game">
+    </div>
+  </div>
+
+  <!-- Pop Up Iklan -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="relative max-w-md">
+      <img src="/assets/promo.png" class="rounded" alt="Iklan">
+      <button onclick="document.getElementById('popup').style.display='none'" class="absolute top-1 right-1 bg-white text-black rounded-full px-2">✕</button>
+    </div>
+  </div>
+
+</body>
+</html>
