@@ -35,15 +35,15 @@
 
   <!-- Kategori -->
   <div class="flex justify-center gap-2 mt-4">
-    <button class="bg-lime-400 text-black px-4 py-2 rounded font-bold">SEMUA</button>
-    <button class="bg-gray-800 px-4 py-2 rounded">TOP UP</button>
-    <button class="bg-gray-800 px-4 py-2 rounded">AKUN</button>
-    <button class="bg-gray-800 px-4 py-2 rounded">ITEM</button>
-    <button class="bg-gray-800 px-4 py-2 rounded">JASA JOKI</button>
+    <button class="kategori-btn bg-lime-400 text-black px-4 py-2 rounded font-bold" data-kategori="semua">SEMUA</button>
+    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="topup">TOP UP</button>
+    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="akun">AKUN</button>
+    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="item">ITEM</button>
+    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="jasajoki">JASA JOKI</button>
   </div>
 
-  <!-- Flash Sale -->
-  <div class="px-4 mt-6">
+  <!-- Flash Sale (Kategori: topup) -->
+  <div class="px-4 mt-6 kategori-content" data-kategori="topup">
     <div class="flex items-center gap-2">
       <h2 class="text-xl font-bold">FLASHSALE</h2>
       <span class="bg-lime-400 text-black px-2 py-1 rounded font-mono text-sm" id="countdown">0:22:40:32</span>
@@ -70,8 +70,8 @@
     </div>
   </div>
 
-  <!-- Game Populer -->
-  <div class="px-4 mt-6">
+  <!-- Game Populer (Kategori: semua) -->
+  <div class="px-4 mt-6 kategori-content" data-kategori="semua">
     <div class="flex justify-between items-center">
       <h2 class="text-xl font-bold">GAME POPULER</h2>
       <a href="#" class="text-lime-400 font-bold">Lihat semua</a>
@@ -88,10 +88,28 @@
   <!-- Pop Up Iklan -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="relative max-w-md">
-      <img src="/assets/promo.png" class="rounded" alt="Iklan">
+      <img src="/mnt/data/ce66d95a-9d3c-4c6f-8f6b-0e5444036c5a.png" class="rounded" alt="Iklan">
       <button onclick="document.getElementById('popup').style.display='none'" class="absolute top-1 right-1 bg-white text-black rounded-full px-2">✕</button>
     </div>
   </div>
+
+  <script>
+    // Tampilkan konten sesuai kategori saat tombol ditekan
+    document.querySelectorAll('.kategori-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const kategori = button.dataset.kategori;
+
+        // Aktifkan tombol terpilih
+        document.querySelectorAll('.kategori-btn').forEach(btn => btn.classList.remove('bg-lime-400', 'text-black', 'font-bold'));
+        button.classList.add('bg-lime-400', 'text-black', 'font-bold');
+
+        // Tampilkan/hidden konten sesuai kategori
+        document.querySelectorAll('.kategori-content').forEach(content => {
+          content.style.display = (content.dataset.kategori === kategori || kategori === 'semua') ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
