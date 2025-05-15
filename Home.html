@@ -7,6 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="Main.js"></script>
   <style>
     .scrollbar-hidden::-webkit-scrollbar {
       display: none;
@@ -34,17 +35,19 @@
 
   <!-- Carousel (placeholder image) -->
 
-  <div class="relative overflow-hidden bg-black h-96" id="carousel">
+  <div class="relative overflow-hidden bg-black aspect-[33/10]" id="carousel">
   <!-- Wrapper flex untuk gambar -->
-  <div class="absolute inset-0 flex justify-center items-center">
-    <img src="assets/promosi1.png" alt="Banner 1" class="carousel-image max-h-96 object-contain transition-opacity duration-700 opacity-100 absolute" />
-    <img src="assets/promosi2.png" alt="Banner 2" class="carousel-image max-h-96 object-contain transition-opacity duration-700 opacity-0 absolute" />
+  <div class="absolute inset-0 w-full h-full flex justify-center items-center">
+    <img src="assets/promosi1.png" alt="Banner 1"
+      class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-100 absolute" />
+    <img src="assets/promosi2.png" alt="Banner 2"
+      class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-0 absolute" />
   </div>
 
   <!-- Tombol indikator -->
   <div class="absolute bottom-2 w-full flex justify-center space-x-2 z-10">
-    <button class="w-2 h-2 rounded-full bg-white" data-index="0"></button>
-    <button class="w-2 h-2 rounded-full bg-gray-500" data-index="1"></button>
+    <button class="w-3 h-3 rounded-full bg-white" data-index="0"></button>
+    <button class="w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
   </div>
 </div>
 
@@ -84,17 +87,15 @@
     interval = setInterval(nextImage, 5000);
   }
 
-  // Start
   showImage(0);
   interval = setInterval(nextImage, 5000);
 </script>
-
 
   <!-- Kategori -->
   <div class="flex justify-center gap-2 mt-4">
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="semua">SEMUA</button>
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="topup">TOP UP</button>
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="Akun"><a href="Akun.html">AKUN</a></button>
+    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="Akun"><a href="Account.html">AKUN</a></button>
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="item">ITEM</button>
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="jasajoki">JASA JOKI</button>
   </div>
