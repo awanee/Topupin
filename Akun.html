@@ -41,12 +41,30 @@
 
         <!-- Navigation Tabs -->
         <div class="flex mb-6 text-center justify-center gap-4">
-        <a href="Home.html" class="bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">SEMUA</a>
-        <a href="#" class="bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">TOP UP</a>
-        <a href="#" class="bg-lime-400 text-black px-8 py-2 sm:rounded-lg">AKUN</a>
-        <a href="#" class="bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">ITEM</a>
-        <a href="#" class="bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">JASA JOKI</a>
+        <a href="Home.html" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">SEMUA</a>
+        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">TOP UP</a>
+        <a href="#" class="kategori-btn bg-lime-400 text-black px-8 py-2 sm:rounded-lg">AKUN</a>
+        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">ITEM</a>
+        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">JASA JOKI</a>
         </div>
+
+    <script>
+    // Tampilkan konten sesuai kategori saat tombol ditekan
+    document.querySelectorAll('.kategori-btn').forEach(button => {
+        button.addEventListener('click', () => {
+        const kategori = button.dataset.kategori;
+
+        // Aktifkan tombol terpilih
+        document.querySelectorAll('.kategori-btn').forEach(btn => btn.classList.remove('bg-lime-400', 'text-black', 'font-bold'));
+        button.classList.add('bg-lime-400', 'text-black', 'font-bold');
+
+        // Tampilkan/hidden konten sesuai kategori
+        document.querySelectorAll('.kategori-content').forEach(content => {
+        content.style.display = (content.dataset.kategori === kategori || kategori === 'semua') ? 'block' : 'none';
+        });
+      });
+    });
+    </script>
 
         <!-- Product Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -474,5 +492,6 @@
         </div>
         </div>
     </footer>
+
 </body>
 </html>
