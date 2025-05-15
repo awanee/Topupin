@@ -34,17 +34,19 @@
 
   <!-- Carousel (placeholder image) -->
 
-  <div class="relative overflow-hidden bg-black h-96" id="carousel">
+  <div class="relative overflow-hidden bg-black aspect-[33/10]" id="carousel">
   <!-- Wrapper flex untuk gambar -->
-  <div class="absolute inset-0 flex justify-center items-center">
-    <img src="assets/promosi1.png" alt="Banner 1" class="carousel-image max-h-96 object-contain transition-opacity duration-700 opacity-100 absolute" />
-    <img src="assets/promosi2.png" alt="Banner 2" class="carousel-image max-h-96 object-contain transition-opacity duration-700 opacity-0 absolute" />
+  <div class="absolute inset-0 w-full h-full flex justify-center items-center">
+    <img src="assets/promosi1.png" alt="Banner 1"
+      class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-100 absolute" />
+    <img src="assets/promosi2.png" alt="Banner 2"
+      class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-0 absolute" />
   </div>
 
   <!-- Tombol indikator -->
   <div class="absolute bottom-2 w-full flex justify-center space-x-2 z-10">
-    <button class="w-2 h-2 rounded-full bg-white" data-index="0"></button>
-    <button class="w-2 h-2 rounded-full bg-gray-500" data-index="1"></button>
+    <button class="w-3 h-3 rounded-full bg-white" data-index="0"></button>
+    <button class="w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
   </div>
 </div>
 
@@ -84,11 +86,9 @@
     interval = setInterval(nextImage, 5000);
   }
 
-  // Start
   showImage(0);
   interval = setInterval(nextImage, 5000);
 </script>
-
 
   <!-- Kategori -->
   <div class="flex justify-center gap-2 mt-4">
