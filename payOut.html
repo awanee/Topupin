@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topupin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation Bar -->
+    <nav class="bg-black p-3 flex justify-between items-center border-b border-gray-800">
+        <div class="text-lg font-bold">Topupin</div>
+        <div class="flex items-center">
+            <div class="relative mx-2">
+                <input type="text" class="bg-gray-800 rounded px-3 py-1 w-48" placeholder="Search...">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <i class="fas fa-search text-gray-400"></i>
+                </button>
+            </div>
+            <button class="mx-2"><i class="fas fa-shopping-cart"></i></button>
+            <div class="mx-2">Akun saya</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4">
+        <!-- Game Info -->
+        <div class="flex items-center mb-6">
+            <img src="assets/logogame/logovalo.png" alt="Minecraft" class="rounded-lg w-16 h-16 mr-4">
+            <div>
+                <h1 class="text-xl font-bold">Valorant</h1>
+                <p class="text-gray-400 text-sm mt-1">
+                    Beli Diamonds Untuk Keperluan Dalam Game! Dapatkan update terbaru yang. Top up cepat, mudah & aman. Layanan 24 jam.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex gap-2 mb-6 ">
+            <button class="bg-[#D7FD52] rounded-[13px] py-2 px-8 hover:bg-zinc-700 active:bg-zinc-600 transition">TOP UP</button>
+            <button class="bg-[#242424] rounded-[13px] py-2 px-8 hover:bg-zinc-700 active:bg-zinc-600 transition">AKUN</button>
+            <button class="bg-[#242424] rounded-[13px] py-2 px-8 hover:bg-zinc-700 active:bg-zinc-600 transition">ITEM</button>
+            <button class="bg-[#242424] rounded-[13px] py-2 px-8 hover:bg-zinc-700 active:bg-zinc-600 transition">JASA JOKI</button>
+        </div>
+
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Left Section - Nominal Selection -->
+            <div class="md:col-span-2">
+                <div class="bg-[#D7FD52] text-black p-3 rounded-t-lg font-bold">
+                    Pilih Nominal
+                </div>
+                <div class="bg-gray-900 p-4 rounded-b-lg">
+                    <div class="grid grid-cols-3 gap-4">
+                        <!-- Diamonds Options -->
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="14,500" data-amount="53 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                53 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp14.500
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="28,500" data-amount="154 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                154 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp28.500
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="45,000" data-amount="256 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                256 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp45.000
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="70,000" data-amount="503 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                503 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp70.000
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="140,000" data-amount="1010 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                1010 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp140.000
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="280,000" data-amount="2020 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                2020 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp280.000
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="350,000" data-amount="3330 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                3330 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp350.000
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="450,000" data-amount="4440 Diamonds">
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                4440 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp450.000
+                            </div>
+                        </div>
+
+                        <div class="nominal-card bg-gray-800 rounded-lg cursor-pointer" data-price="725,000" data-amount>
+                            <div class="p-4 flex justify-center">
+                                <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
+                            </div>
+                            <div class="bg-blue-900 p-2 text-center text-sm">
+                                8880 Diamonds<br>
+                                <span class="text-xs text-gray-300">SD + Bonus</span>
+                            </div>
+                            <div class="bg-[#D7FD52] text-black text-center p-1">
+                                Rp725.000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method Section -->
+                <div class="mt-6">
+                    <div class="bg-[#D7FD52] text-black p-3 rounded-t-lg font-bold">
+                        Pilih Metode Pembayaran
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded-b-lg">
+                        <div class="grid grid-cols-5 gap-4">
+                            <!-- Payment Options -->
+                            <div class="payment-method bg-white rounded-lg p-2 flex items-center justify-center cursor-pointer" data-method="OVO">
+                                <img src="assets/logopembayaran/ovo.png" alt="OVO" class="h-8">
+                            </div>
+                            <div class="payment-method bg-white rounded-lg p-2 flex items-center justify-center cursor-pointer" data-method="QRIS">
+                                <img src="assets/logopembayaran/qris.png" alt="QRIS" class="h-8">
+                            </div>
+                            <div class="payment-method bg-white rounded-lg p-2 flex items-center justify-center cursor-pointer" data-method="DANA">
+                                <img src="assets/logopembayaran/dana.png" alt="DANA" class="h-8">
+                            </div>
+                            <div class="payment-method bg-white rounded-lg p-2 flex items-center justify-center cursor-pointer" data-method="BCA">
+                                <img src="assets/logopembayaran/blu.png" alt="BCA" class="h-8">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section - Order Form -->
+            <div class="md:col-span-1">
+                <!-- Form Section -->
+                <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                    <div class="text-sm mb-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-circle text-[#D7FD52] mr-2"></i>
+                            <span class="text-[#D7FD52] font-semibold">Important</span>
+                        </div>
+                        <p class="text-gray-300 mt-1">
+                            Pastikan ID/server/nickname sudah benar, kesalahan input bukan tanggung jawab kami.
+                        </p>
+                    </div>
+
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-sm text-gray-400 mb-1">UserID</label>
+                            <input type="text" class="w-full bg-gray-800 border border-gray-700 rounded p-2" placeholder="Masukkan UserID">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm text-gray-400 mb-1">Server</label>
+                            <input type="text" class="w-full bg-gray-800 border border-gray-700 rounded p-2" placeholder="Masukkan Server">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm text-gray-400 mb-1">Nickname</label>
+                            <input type="text" class="w-full bg-gray-800 border border-gray-700 rounded p-2" placeholder="Masukkan Nickname">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm text-gray-400 mb-1">Email (opsional)</label>
+                            <input type="email" class="w-full bg-gray-800 border border-gray-700 rounded p-2" placeholder="Masukkan Email">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm text-gray-400 mb-1">Nomor ponsel</label>
+                            <input type="tel" class="w-full bg-gray-800 border border-gray-700 rounded p-2" placeholder="Masukkan No HP">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm text-gray-400 mb-1">Pengiriman Premium</label>
+                            <div class="flex items-center justify-between bg-gray-800 border border-gray-700 rounded p-2">
+                                <div>
+                                    <div class="font-semibold">Kirim Otomatis</div>
+                                    <div class="text-xs text-gray-400">5-10 menit</div>
+                                </div>
+                                <div class="text-[#D7FD52]">
+                                    <span class="line-through text-gray-500 text-xs">Rp1.000</span>
+                                    <div>Gratis</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary Section -->
+                <div id="order-summary" class="bg-gray-900 rounded-lg p-4 mb-4">
+                    <div class="mb-3 font-semibold">Beli sekarang</div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-400">Harga</span>
+                        <span id="price-display">Rp0</span>
+                    </div>
+                    <div class="flex justify-between mb-4">
+                        <span class="text-gray-400">Biaya admin</span>
+                        <span>Rp0</span>
+                    </div>
+                    <div class="flex justify-between font-semibold">
+                        <span>Total</span>
+                        <span id="total-price-display">Rp0</span>
+                    </div>
+                </div>
+
+                <!-- Payment Button -->
+                <div id="payment-button" class="bg-gray-900 rounded-lg p-4">
+                    <div class="mb-3 font-semibold">Bayar dengan</div>
+                    <div id="payment-method-display" class="text-gray-400 mb-4">Pilih metode pembayaran</div>
+                    <button class="w-full bg-[#D7FD52] text-black font-semibold rounded-lg py-2">
+                        BELI SEKARANG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black mt-10 p-6 border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between mb-6">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold mb-3">Topupin</div>
+                    <div class="text-sm text-gray-400">Game Voucher</div>
+                </div>
+                <div>
+                    <div class="text-sm font-semibold mb-2">Metode Pembayaran</div>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="bg-white rounded p-1 w-12 h-6">
+                            <img src="assets/logopembayaran/qris.png" alt="QRIS" class="w-full h-full object-contain">
+                        </div>
+                        <div class="bg-white rounded p-1 w-12 h-6">
+                            <img src="assets/logopembayaran/blu.png" alt="QRIS" class="w-full h-full object-contain">
+                        </div>
+                        <div class="bg-white rounded p-1 w-12 h-6">
+                            <img src="assets/logopembayaran/dana.png" alt="QRIS" class="w-full h-full object-contain">
+                        </div>
+                        <div class="bg-white rounded p-1 w-12 h-6">
+                            <img src="assets/logopembayaran/ovo.png" alt="QRIS" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
+                <span class="text-xs text-gray-500">©2023</span>
+                <span class="text-xs text-gray-500">Privacy</span>
+                <span class="text-xs text-gray-500">Terms</span>
+                <span class="text-xs text-gray-500">Sitemap</span>
+                <span class="text-xs text-gray-500">Blog</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize variables to store selections
+        let selectedNominal = null;
+        let selectedPaymentMethod = null;
+
+        // Add event listeners to nominal cards
+        document.querySelectorAll('.nominal-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                document.querySelectorAll('.nominal-card').forEach(c => {
+                    c.classList.remove('ring-2', 'ring-yellow-400');
+                });
+                
+                // Add active class to selected card
+                this.classList.add('ring-2', 'ring-yellow-400');
+                
+                // Get the price and amount from data attributes
+                selectedNominal = {
+                    price: this.getAttribute('data-price'),
+                    amount: this.querySelector('.bg-blue-900').innerText.split('\n')[0].trim()
+                };
+                
+                // Update the order summary
+                updateOrderSummary();
+            });
+        });
+
+        // Add event listeners to payment methods
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                // Remove active class from all payment methods
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('ring-2', 'ring-yellow-400');
+                });
+                
+                // Add active class to selected payment method
+                this.classList.add('ring-2', 'ring-yellow-400');
+                
+                // Get the payment method from data attribute
+                selectedPaymentMethod = this.getAttribute('data-method');
+                
+                // Update the payment display
+                updatePaymentDisplay();
+            });
+        });
+
+        // Function to update order summary
+        function updateOrderSummary() {
+            if (selectedNominal) {
+                document.getElementById('price-display').innerText = `Rp${selectedNominal.price}`;
+                document.getElementById('total-price-display').innerText = `Rp${selectedNominal.price}`;
+            } else {
+                document.getElementById('price-display').innerText = 'Rp0';
+                document.getElementById('total-price-display').innerText = 'Rp0';
+            }
+        }
+
+        // Function to update payment display
+        function updatePaymentDisplay() {
+            if (selectedPaymentMethod) {
+                document.getElementById('payment-method-display').innerText = selectedPaymentMethod;
+            } else {
+                document.getElementById('payment-method-display').innerText = 'Pilih metode pembayaran';
+            }
+        }
+    </script>
+</body>
+</html>
