@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topupin - Halaman Utama</title>
+  <title>Topupin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .scrollbar-hidden::-webkit-scrollbar {
@@ -15,14 +17,20 @@
 
   <!-- Navbar -->
   <header class="flex justify-between items-center bg-gray-900 p-4">
-    <h1 class="text-xl font-bold text-green-400">Topup<span class="text-white">in</span></h1>
-    <div class="flex items-center space-x-2">
-      <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-black">
-      <button class="bg-white text-black px-2 py-1 rounded">🔍</button>
-      <button>🛒</button>
-      <button>Akun saya</button>
-    </div>
-  </header>
+        <h1 class="text-xl font-bold text-white"><a Topup href="Home.html" class="hover:text-gray-300">Topup<span class="text-lime-400">in</span></a></h1>
+        <div class="flex items-center space-x-2">
+            <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-gray-500 bg-white">
+            <button class="bg-gray-800 px-2 py-1 text-white hover:text-lime-400 rounded">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="mr-4 text-white hover:text-lime-400">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button class="bg-transparent text-white hover:text-lime-400">
+            Akun saya
+            </button>
+        </div>
+    </header>
 
   <!-- Carousel (placeholder image) -->
   <div class="relative overflow-hidden">
@@ -37,7 +45,7 @@
   <div class="flex justify-center gap-2 mt-4">
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="semua">SEMUA</button>
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="topup">TOP UP</button>
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="akun">AKUN</button>
+    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="Akun"><a href="Akun.html">AKUN</a></button>
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="item">ITEM</button>
     <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="jasajoki">JASA JOKI</button>
   </div>
@@ -92,6 +100,32 @@
       <button onclick="document.getElementById('popup').style.display='none'" class="absolute top-1 right-1 bg-white text-black rounded-full px-2">✕</button>
     </div>
   </div>
+
+  <!-- Footer -->
+    <footer class="bg-slate-800 text-white mt-8 py-6 border-t-4 border-gray-300 rounded">
+        <div class="container mx-auto px-4">
+        <div class="mb-6">
+            <h2 class="text-xl font-bold text-white">Topup<span class="text-lime-400">in</span></h2>
+            <p class="text-sm text-gray-300 hover:text-lime-400">bantuan</p>
+            <p class="text-sm text-gray-300 hover:text-lime-400">promo/topupin</p>
+        </div>
+
+        <div class="mb-6 text-center">
+            <p class="text-sm text-gray-300 mb-2">Metode Pembayaran:</p>
+            <div class="flex justify-center gap-2 items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/2560px-Google_Pay_Logo.svg.png" alt="Google Pay" class="w-16">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="PayPal" class="w-16">
+            <img src="https://brandlogos.net/wp-content/uploads/2021/11/mastercard-logo-512x512.png" alt="Mastercard" class="w-16">
+            <img src="https://brandlogos.net/wp-content/uploads/2022/07/visa_inc-logo_brandlogos.net_iai1b-300x300.png" alt="Visa" class="w-16">
+            <img src="https://static.cdnlogo.com/logos/a/95/apple-pay.png" alt="Apple Pay" class="w-16">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Stripe_logo%2C_revised_2014.png" alt="Stripe" class="w-16">
+            <img src="https://images.seeklogo.com/logo-png/49/2/discover-card-logo-png_seeklogo-499264.png" alt="Discover" class="w-16">
+            <img src="https://ottocash.id/wp-content/uploads/2022/08/qris-1024x307.png" alt="Qris" class="w-16">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" alt="Logo_dana_blue" class="w-16">
+            </div>
+        </div>
+        </div>
+    </footer>
 
   <script>
     // Tampilkan konten sesuai kategori saat tombol ditekan
