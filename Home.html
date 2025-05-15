@@ -9,18 +9,38 @@
     .scrollbar-hidden::-webkit-scrollbar {
       display: none;
     }
+    .active-category {
+      background-color: #bef264;
+      color: black;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
 
   <!-- Navbar -->
-  <header class="flex justify-between items-center bg-gray-900 p-4">
-    <h1 class="text-xl font-bold text-green-400">Topup<span class="text-white">in</span></h1>
-    <div class="flex items-center space-x-2">
-      <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-black">
-      <button class="bg-white text-black px-2 py-1 rounded">🔍</button>
-      <button>🛒</button>
-      <button>Akun saya</button>
+  <header class="bg-gray-900 p-4">
+    <div class="flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">Topup<span class="text-white">in</span></h1>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden md:flex items-center space-x-2">
+        <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-black">
+        <button class="bg-white text-black px-2 py-1 rounded">🔍</button>
+        <button>🛒</button>
+        <button>Akun saya</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden mt-2 space-y-2">
+      <a href="#" class="block text-white border-b border-gray-600 pb-1">Beranda</a>
+      <a href="#" class="block text-white border-b border-gray-600 pb-1">Pencarian</a>
+      <a href="#" class="block text-white border-b border-gray-600 pb-1">Keranjang</a>
+      <button class="bg-yellow-400 text-black px-4 py-1 rounded font-bold w-full">Masuk</button>
     </div>
   </header>
 
@@ -34,16 +54,16 @@
   </div>
 
   <!-- Kategori -->
-  <div class="flex justify-center gap-2 mt-4">
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="semua">SEMUA</button>
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="topup">TOP UP</button>
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="akun">AKUN</button>
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="item">ITEM</button>
-    <button class="kategori-btn bg-gray-800 px-4 py-2 rounded" data-kategori="jasajoki">JASA JOKI</button>
+  <div class="flex justify-center gap-2 mt-4 overflow-x-auto px-4 scrollbar-hidden" id="kategori-container">
+    <button class="category-btn active-category px-4 py-2 rounded" data-kategori="semua">SEMUA</button>
+    <button class="category-btn bg-gray-800 px-4 py-2 rounded" data-kategori="topup">TOP UP</button>
+    <button class="category-btn bg-gray-800 px-4 py-2 rounded" data-kategori="akun">AKUN</button>
+    <button class="category-btn bg-gray-800 px-4 py-2 rounded" data-kategori="item">ITEM</button>
+    <button class="category-btn bg-gray-800 px-4 py-2 rounded" data-kategori="jasa">JASA JOKI</button>
   </div>
 
-  <!-- Flash Sale (Kategori: topup) -->
-  <div class="px-4 mt-6 kategori-content" data-kategori="topup">
+  <!-- Flash Sale -->
+  <div class="px-4 mt-6">
     <div class="flex items-center gap-2">
       <h2 class="text-xl font-bold">FLASHSALE</h2>
       <span class="bg-lime-400 text-black px-2 py-1 rounded font-mono text-sm" id="countdown">0:22:40:32</span>
@@ -70,8 +90,8 @@
     </div>
   </div>
 
-  <!-- Game Populer (Kategori: semua) -->
-  <div class="px-4 mt-6 kategori-content" data-kategori="semua">
+  <!-- Game Populer -->
+  <div class="px-4 mt-6">
     <div class="flex justify-between items-center">
       <h2 class="text-xl font-bold">GAME POPULER</h2>
       <a href="#" class="text-lime-400 font-bold">Lihat semua</a>
@@ -88,25 +108,24 @@
   <!-- Pop Up Iklan -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="relative max-w-md">
-      <img src="assets/promo.png" class="rounded" alt="Iklan">
+      <img src="/mnt/data/ce66d95a-9d3c-4c6f-8f6b-0e5444036c5a.png" class="rounded" alt="Iklan">
       <button onclick="document.getElementById('popup').style.display='none'" class="absolute top-1 right-1 bg-white text-black rounded-full px-2">✕</button>
     </div>
   </div>
 
   <script>
-    // Tampilkan konten sesuai kategori saat tombol ditekan
-    document.querySelectorAll('.kategori-btn').forEach(button => {
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Efek pindah kategori
+    document.querySelectorAll('.category-btn').forEach(button => {
       button.addEventListener('click', () => {
-        const kategori = button.dataset.kategori;
-
-        // Aktifkan tombol terpilih
-        document.querySelectorAll('.kategori-btn').forEach(btn => btn.classList.remove('bg-lime-400', 'text-black', 'font-bold'));
-        button.classList.add('bg-lime-400', 'text-black', 'font-bold');
-
-        // Tampilkan/hidden konten sesuai kategori
-        document.querySelectorAll('.kategori-content').forEach(content => {
-          content.style.display = (content.dataset.kategori === kategori || kategori === 'semua') ? 'block' : 'none';
-        });
+        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active-category'));
+        button.classList.add('active-category');
+        // logika pindah kategori bisa ditambah di sini
+        console.log('Kategori dipilih:', button.dataset.kategori);
       });
     });
   </script>
