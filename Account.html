@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="Main.js"></script>
 </head>
 <body class="bg-black">
     <!-- Header -->
@@ -31,7 +32,7 @@
         <!-- Product Header -->
         <div class="bg-black text-white p-4 rounded flex items-center mb-6">
         <div class="mr-4">
-            <img src="assets/logococ.png" alt="Minecraft Logo" class="w-16 h-16 rounded">
+            <img src="assets/logogame/logococ.png" alt="Minecraft Logo" class="w-16 h-16 rounded">
         </div>
         <div>
             <h1 class="text-lg font-bold">Clash Of Clans</h1>
@@ -41,30 +42,12 @@
 
         <!-- Navigation Tabs -->
         <div class="flex mb-6 text-center justify-center gap-4">
-        <a href="Home.html" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">SEMUA</a>
-        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">TOP UP</a>
+        <a href="Home.html" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg">SEMUA</a>
+        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
         <a href="#" class="kategori-btn bg-lime-400 text-black px-8 py-2 sm:rounded-lg">AKUN</a>
-        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">ITEM</a>
-        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg hover:bg-lime-400 hover:text-black">JASA JOKI</a>
+        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">ITEM</a>
+        <a href="#" class="kategori-btn bg-gray-700 text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
         </div>
-
-    <script>
-    // Tampilkan konten sesuai kategori saat tombol ditekan
-    document.querySelectorAll('.kategori-btn').forEach(button => {
-        button.addEventListener('click', () => {
-        const kategori = button.dataset.kategori;
-
-        // Aktifkan tombol terpilih
-        document.querySelectorAll('.kategori-btn').forEach(btn => btn.classList.remove('bg-lime-400', 'text-black', 'font-bold'));
-        button.classList.add('bg-lime-400', 'text-black', 'font-bold');
-
-        // Tampilkan/hidden konten sesuai kategori
-        document.querySelectorAll('.kategori-content').forEach(content => {
-        content.style.display = (content.dataset.kategori === kategori || kategori === 'semua') ? 'block' : 'none';
-        });
-      });
-    });
-    </script>
 
         <!-- Product Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -81,7 +64,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp150.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Beli.html">Beli</a></button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -97,7 +80,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -113,7 +96,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp250.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <Beli class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -129,7 +112,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp300.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -145,7 +128,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp350.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -162,7 +145,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SEMI MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp100.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -178,7 +161,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SEMI MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp150.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -194,7 +177,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SEMI MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -210,7 +193,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SEMI MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp250.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -226,7 +209,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SEMI MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp300.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -242,7 +225,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -258,7 +241,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -274,7 +257,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -290,7 +273,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -306,7 +289,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -322,7 +305,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -338,7 +321,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -354,7 +337,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -370,7 +353,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -386,7 +369,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -402,7 +385,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -418,7 +401,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -434,7 +417,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -450,7 +433,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
 
@@ -466,7 +449,7 @@
             <div class="p-3">
             <p class="font-bold mb-1">SIAP MAX MURAH</p>
             <p class="text-lime-400 text-sm mb-2">Rp200.000/ Akun</p>
-            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3">Beli</button>
+            <button class="bg-lime-400 text-black px-4 py-1 rounded text-sm float-right mt-4 mb-3"><a href="Buy.html">Beli</a></button>
             </div>
         </div>
         <!-- Continue with more products to match the screenshot -->
