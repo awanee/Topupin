@@ -16,30 +16,86 @@
 </head>
 <body class="bg-black text-white font-sans">
 
-  <!-- Navigation Bar -->
-    <nav class="bg-[#242424]  p-3 flex justify-between items-center border-b border-gray-800">
-        <div class="text-lg font-bold text-white"><a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a></div> 
-        <div class="flex items-center">
-            <div class="relative mx-2">
-                <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search...">
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
-                    <i class="fas fa-search text-gray-400"></i>
-                </button>
-            </div>
-            <button class="mx-2 text-white hover:text-[#D7FD52]"><i class="fas fa-shopping-cart"></i></button>
-            <div class="mx-2 text-white hover:text-[#D7FD52]">Akun saya</div>
-        </div>
-    </nav>
+ <!-- Navbar -->
+<nav class="bg-[#242424] p-3 border-b border-gray-800 text-white fixed top-0 w-full z-50">
+  <div class="flex justify-between items-center">
+    <!-- Logo -->
+    <div class="text-lg font-bold">
+      <a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-4">
+      <div class="relative">
+        <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search..." />
+        <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <i class="fas fa-search text-gray-400"></i>
+        </button>
+      </div>
+      <a href="#" class="hover:text-[#D7FD52] flex items-center gap-1">
+        <i class="fas fa-box"></i> Lacak Pesanan
+      </a>
+      <a href="#" class="hover:text-[#D7FD52]">Akun saya</a>
+    </div>
+
+    <!-- Burger Button (Mobile) -->
+    <button class="md:hidden block focus:outline-none" onclick="toggleDropdown()">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<div id="dropdownMenu" class="fixed top-12 left-0 w-full bg-[#242424] text-white z-40 hidden animate-slide-down">
+  <div class="flex flex-col px-6 py-4 space-y-4 border-t border-gray-700">
+    <div class="relative">
+      <input type="text" class="text-gray-400 rounded px-3 py-2 w-full" placeholder="Search..." />
+      <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+        <i class="fas fa-search text-gray-400"></i>
+      </button>
+    </div>
+    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+      <i class="fas fa-box"></i> Lacak Pesanan
+    </a>
+    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+      <i class="fas fa-user"></i> Akun Saya
+    </a>
+  </div>
+</div>
+
+<script>
+  function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("hidden");
+  }
+</script>
+<style>
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
 
   <!-- Carousel (placeholder image) -->
 
-  <div class="relative overflow-hidden bg-black aspect-[33/10]" id="carousel">
-  <!-- Wrapper flex untuk gambar -->
-  <div class="absolute inset-0 w-full h-full flex justify-center items-center">
+  <div class="mt-[60px] relative overflow-hidden bg-black w-full aspect-[17/5] max-w-screen-xl mx-auto" id="carousel">
+  <!-- Wrapper gambar -->
+  <div class="absolute inset-0 w-full h-full">
     <img src="assets/promosi1.png" alt="Banner 1"
-      class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-100 absolute" />
+      class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
     <img src="assets/promosi2.png" alt="Banner 2"
-      class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-0 absolute" />
+      class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" />
   </div>
 
   <!-- Tombol indikator -->
@@ -48,6 +104,7 @@
     <button class="w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
   </div>
 </div>
+
 
 <script>
   const carousel = document.getElementById('carousel');
@@ -94,7 +151,6 @@
   <a href="Home.html" class="kategori-btn flex-1 bg-[#D7FD52] text-black px-2 py-2 rounded-md text-xs sm:text-sm text-center">SEMUA</a>
   <a href="TopUp.html" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
   <a href="Account.html" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">AKUN</a>
-  <a href="#" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">ITEM</a>
   <a href="#" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
 </div>
 
@@ -124,15 +180,125 @@
     <span class="bg-lime-400 text-black px-2 py-1 rounded font-mono text-sm" id="countdown">0:22:40:32</span>
   </div>
 
-  <div class="flex gap-4 mt-4 w-full">
-    <div class="flex-1 p-2 rounded">
-      <img src="/assets/diskon1.png" alt="produk" class="w-full h-auto rounded">
+  <div class="container mx-auto px-4 py-6">
+    <!-- Desktop/Tablet Grid -->
+    <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Card 1 -->
+      <div class="w-full rounded overflow-hidden">
+        <img src="/assets/diskon1.png" alt="produk" class="w-full h-auto object-cover rounded">
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="w-full rounded overflow-hidden">
+        <img src="/assets/diskon2.png" alt="produk" class="w-full h-auto object-cover rounded">
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="w-full rounded overflow-hidden">
+        <img src="/assets/diskon3.png" alt="produk" class="w-full h-auto object-cover rounded">
+      </div>
     </div>
-    <div class="flex-1 p-2 rounded">
-      <img src="/assets/diskon2.png" alt="produk" class="w-full h-auto rounded">
+    
+    <!-- Mobile Slider -->
+    <div class="sm:hidden relative">
+      <div class="slider-container flex transition-transform duration-300 ease-in-out">
+        <!-- Slide 1 -->
+        <div class="slide min-w-full px-2">
+          <img src="/assets/diskon1.png" alt="produk" class="w-full h-auto object-cover rounded">
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide min-w-full px-2">
+          <img src="/assets/diskon2.png" alt="produk" class="w-full h-auto object-cover rounded">
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide min-w-full px-2">
+          <img src="/assets/diskon3.png" alt="produk" class="w-full h-auto object-cover rounded">
+        </div>
+      </div>
+      
+      <!-- Dots -->
+      <div class="dots-container flex justify-center mt-4">
+        <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none active-dot bg-gray-700"></button>
+        <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
+        <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
+      </div>
     </div>
   </div>
-</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sliderContainer = document.querySelector('.slider-container');
+      const dots = document.querySelectorAll('.dot');
+      let currentSlide = 0;
+      
+      // Initialize
+      updateSliderPosition();
+      
+      // Add click events to dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlide = index;
+          updateSliderPosition();
+          updateDots();
+        });
+      });
+      
+      // Add touch events for swiping
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      sliderContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50) { // Swipe left
+          if (currentSlide < dots.length - 1) {
+            currentSlide++;
+            updateSliderPosition();
+            updateDots();
+          }
+        } else if (touchEndX > touchStartX + 50) { // Swipe right
+          if (currentSlide > 0) {
+            currentSlide--;
+            updateSliderPosition();
+            updateDots();
+          }
+        }
+      }
+      
+      // Auto slide every 5 seconds
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % dots.length;
+        updateSliderPosition();
+        updateDots();
+      }, 5000);
+      
+      function updateSliderPosition() {
+        sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+      
+      function updateDots() {
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.classList.add('bg-gray-700');
+            dot.classList.remove('bg-gray-300');
+          } else {
+            dot.classList.add('bg-gray-300');
+            dot.classList.remove('bg-gray-700');
+          }
+        });
+      }
+    });
+  </script>
+
 
   <!-- Game Populer (Kategori: semua) -->
   <div class="px-4 mt-6 kategori-content" data-kategori="semua">
