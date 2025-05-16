@@ -229,7 +229,7 @@ function initShoppingCart() {
     
     buyButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            if (!button.textContent.includes('Beli')) return;
+            if (!button.textContent.includes("Buy.html")) return;
             
             e.preventDefault();
             
