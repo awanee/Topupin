@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="Main.js"></script>
+  <style>
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <title>Top Up</title>
+</head>
+<body class="bg-black text-white font-sans">
+
+    <!-- Navbar Start -->
+    <header class="flex justify-between items-center bg-gray-900 p-4">
+        <h1 class="text-xl font-bold text-white">
+        <a href="Home.html" class="hover:text-gray-300">Topup<span class="text-lime-400">in</span></a>
+        </h1>
+        <div class="flex items-center space-x-2">
+            <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-gray-500 bg-white" />
+            <button class="bg-gray-800 px-2 py-1 text-white hover:text-lime-400 rounded">
+            <i class="fas fa-search"></i></button>
+            <button class="bg-transparent text-white hover:text-lime-400">Akun saya</button>
+        </div>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Banner Start -->
+    <div class="relative overflow-hidden bg-black aspect-[33/10]" id="carousel">
+        <!-- Wrapper gambar -->
+        <div class="w-full h-full flex justify-center items-center relative">
+            <img src="assets/promosi1.png" alt="Banner 1"
+            class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-100" />
+            <img src="assets/promosi2.png" alt="Banner 2"
+            class="carousel-image w-full h-full object-contain transition-opacity duration-700 opacity-0 absolute" />
+        </div>
+
+        <!-- Tombol Indikator Start -->
+        <div class="absolute bottom-2 w-full flex justify-center space-x-2 z-10">
+            <button class="w-3 h-3 rounded-full bg-white" data-index="0"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
+        </div>
+        <!-- Tombol Indikator End -->
+
+        <!-- Script Tombol Indikator Start -->
+        <script>
+            const carousel = document.getElementById('carousel');
+            const images = carousel.querySelectorAll('img');
+            const buttons = carousel.querySelectorAll('button');
+            let currentIndex = 0;
+            let interval = null;
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                img.classList.toggle('opacity-100', i === index);
+                img.classList.toggle('opacity-0', i !== index);
+                });
+                buttons.forEach((btn, i) => {
+                btn.classList.toggle('bg-white', i === index);
+                btn.classList.toggle('bg-gray-500', i !== index);
+                });
+                currentIndex = index;
+            }
+
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                showImage(Number(btn.dataset.index));
+                resetInterval();
+                });
+            });
+
+            function nextImage() {
+                const nextIndex = (currentIndex + 1) % images.length;
+                showImage(nextIndex);
+            }
+
+            function resetInterval() {
+                clearInterval(interval);
+                interval = setInterval(nextImage, 5000);
+            }
+
+            showImage(0);
+            interval = setInterval(nextImage, 5000);
+        </script>
+        <!-- Script Tombol Indikator End -->
+    </div>
+    <!-- Banner End -->
+
+    <!-- Tombol Navigasi Kategori Start -->
+    <div class="flex justify-center gap-2 mt-4">
+        <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="semua">SEMUA</button>
+        <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="topup">TOP UP</button>
+        <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="Akun">
+        <a href="Account.html">AKUN</a></button>
+        <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="item">ITEM</button>
+        <button class="kategori-btn bg-gray-800 px-4 py-2 rounded hover:text-black-400" data-kategori="jasajoki">JASA JOKI</button>
+    </div>
+    <!-- Tombol Navigasi Kategori End -->
+
+    <!-- Script Tombol Kategori Start -->
+    <script>
+        document.querySelectorAll('.kategori-btn').forEach(button => {
+        button.addEventListener('click', () => {
+        const kategori = button.dataset.kategori;
+
+            // Highlight tombol aktif
+            document.querySelectorAll('.kategori-btn').forEach(btn =>
+                btn.classList.remove('bg-lime-400', 'text-black', 'font-bold')
+                );
+                button.classList.add('bg-lime-400', 'text-black', 'font-bold');
+
+                // Tampilkan konten sesuai kategori (jika ada)
+                document.querySelectorAll('.kategori-content').forEach(content => {
+                    content.style.display = (content.dataset.kategori === kategori || kategori === 'semua') ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+    <!-- Script Tombol Kategori End -->
+
+    <!-- Konten Produk Start -->
+    <div class="w-[1450px] mx-auto bg-gray-900 rounded-2xl p-6 grid grid-cols-2 gap-6 mt-6 text-white">
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+                <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+                <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+                <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+            <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+                <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+            <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+                <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+            <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+                <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+        <img src="assets/logogame/logodf.png" alt="epep" class="w-20 h-20 rounded" />
+            <div>
+            <p class="font-semibold text-sm text-xl">Minecraft Java & Bedrock <br> Edition - Microsoft</p>
+            </div>
+        </div>
+    </div>
+    <!-- Konten Produk End -->
+
+    <!-- Footer Start -->
+    <footer class="bg-slate-800 text-white mt-8 py-6 border-t-4 border-gray-300 rounded">
+        <div class="container mx-auto px-4">
+        <div class="mb-6">
+            <h2 class="text-xl font-bold text-white">Topup<span class="text-lime-400">in</span></h2>
+            <p class="text-sm text-gray-300 hover:text-lime-400">bantuan</p>
+            <p class="text-sm text-gray-300 hover:text-lime-400">promo/topupin</p>
+        </div>
+
+        <div class="mb-6 text-center">
+            <p class="text-sm text-gray-300 mb-1">Metode Pembayaran:</p>
+            <div class="flex justify-center gap-2 items-center mt-2 mb-1">
+            <img src="assets/logopembayaran/blu.png" alt="blu" class="w-10">
+            <img src="assets/logopembayaran/dana.png" alt="dana" class="w-10">
+            <img src="assets/logopembayaran/ovo.png" alt="ovo" class="w-10">
+            <img src="assets/logopembayaran/qris.png" alt="qris" class="w-10">
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+</body>
+</html>
