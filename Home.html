@@ -90,13 +90,14 @@
 </script>
 
   <!-- Kategori -->
-  <div class="flex justify-center gap-2 mt-4">
-    <a href="Home.html" class="kategori-btn bg-[#D7FD52] text-black px-8 py-2 sm:rounded-lg">SEMUA</a>
-    <a href="TopUp.html" class="kategori-btn bg-[#242424] text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
-    <a href="Account.html" class="kategori-btn bg-[#242424] text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">AKUN</a>
-    <a href="#" class="kategori-btn bg-[#242424] text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">ITEM</a>
-    <a href="#" class="kategori-btn bg-[#242424] text-white px-8 py-2 sm:rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
-  </div>
+ <div class="flex justify-center gap-2 mt-4 px-2 w-full">
+  <a href="Home.html" class="kategori-btn flex-1 bg-[#D7FD52] text-black px-2 py-2 rounded-md text-xs sm:text-sm text-center">SEMUA</a>
+  <a href="TopUp.html" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
+  <a href="Account.html" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">AKUN</a>
+  <a href="#" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">ITEM</a>
+  <a href="#" class="kategori-btn flex-1 bg-[#242424] text-white px-2 py-2 rounded-md text-xs sm:text-sm text-center transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
+</div>
+
 
   <script>
     // Tampilkan konten sesuai kategori saat tombol ditekan
@@ -117,16 +118,17 @@
   </script>
 
   <!-- Flash Sale (Kategori: topup) -->
-  <div class="px-4 mt-6 kategori-content" data-kategori="topup">
+<div class="px-4 sm:px-6 mt-6 kategori-content" data-kategori="topup">
   <div class="flex items-center gap-2">
     <h2 class="text-xl font-bold">FLASHSALE</h2>
     <span class="bg-lime-400 text-black px-2 py-1 rounded font-mono text-sm" id="countdown">0:22:40:32</span>
   </div>
-  <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
-    <div class="p-2 rounded">
+
+  <div class="flex gap-4 mt-4 w-full">
+    <div class="flex-1 p-2 rounded">
       <img src="/assets/diskon.png" alt="produk" class="w-full h-auto rounded">
     </div>
-    <div class="p-2 rounded">
+    <div class="flex-1 p-2 rounded">
       <img src="/assets/diskon.png" alt="produk" class="w-full h-auto rounded">
     </div>
   </div>
@@ -348,6 +350,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>
