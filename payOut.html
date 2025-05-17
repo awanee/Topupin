@@ -164,7 +164,7 @@
                             </div>
                         </div>
 
-                        <div class="nominal-card border border-[#D7FD52] bg-[#242424]  rounded-lg cursor-pointer" data-price="725,000" data-amount>
+                        <div class="nominal-card border border-[#D7FD52] bg-[#242424]  rounded-lg cursor-pointer" data-price="725,000" data-amount="8880">
                             <div class="p-4 flex justify-center">
                                 <img src="assets/logogame/logovalo.png" alt="Diamonds" class="w-12 h-12">
                             </div>
@@ -228,13 +228,13 @@
                 <!-- User ID -->
                 <div class="flex items-center gap-4">
                   <label class="min-w-[130px] font-semibold">User ID <span class="text-red-500">*</span></label>
-                  <input type="text" placeholder="Masukkan User ID" class="flex-1 bg-white text-black rounded-[8px] px-6 py-3 text-sm focus:outline-none">
+                  <input type="text" placeholder="Masukkan User ID" class="flex-1 bg-white text-black rounded-[8px] px-6 py-3 text-sm focus:outline-none" required>
                 </div>
 
                 <!-- Server -->
                 <div class="flex items-center gap-4">
                   <label class="min-w-[130px] font-semibold">Server <span class="text-red-500">*</span></label>
-                  <input type="text" placeholder="Masukkan Server" class="flex-1 bg-white text-black rounded-[8px] px-6 py-3 text-sm focus:outline-none">
+                  <input type="text" placeholder="Masukkan Server" class="flex-1 bg-white text-black rounded-[8px] px-6 py-3 text-sm focus:outline-none" required>
                 </div>
 
                 <!-- Promo -->
@@ -249,7 +249,7 @@
                   <div class="bg-[#242424] border border-[#D7FD52] rounded-[18px] p-4 space-y-2 text-sm">
                     <div class="flex justify-between">
                       <span>Membeli Item</span>
-                      <span>54 Diamonds</span>
+                       <span id="amount-display">53 Diamonds</span>
                     </div>
                     <div class="flex justify-between">
                       <span>Metode Pembayaran</span>
@@ -279,7 +279,7 @@
         </div>
     </div>
 
-    <!-- Footer - MOVED OUTSIDE the container div -->
+    <!-- Footer -->
     <footer class="bg-[#242424] mt-10 rounded-t-[15px] w-full">
         <div class="container mx-auto px-4 py-2">
             <div class="flex flex-col md:flex-row justify-between mb-6">
@@ -319,108 +319,7 @@
             </div>
         </div>
     </footer>
+<script src="payOut.js"></script>
 
-    <script>
-    // Initialize variables to store selections
-    let selectedNominal = null;
-    let selectedPaymentMethod = null;
-
-    // Add event listeners to nominal cards
-    document.querySelectorAll('.nominal-card').forEach(card => {
-        card.addEventListener('click', function() {
-            // Remove active class from all cards
-            document.querySelectorAll('.nominal-card').forEach(c => {
-                c.classList.remove('ring-2', 'ring-yellow-400');
-            });
-            
-            // Add active class to selected card
-            this.classList.add('ring-2', 'ring-yellow-400');
-            
-            // Get the price and amount from data attributes and elements
-            const price = this.getAttribute('data-price');
-            const amount = this.querySelector('.p-2.text-center').innerText.split('\n')[0].trim();
-            
-            selectedNominal = {
-                price: price,
-                amount: amount
-            };
-            
-            // Update the order summary
-            updateOrderSummary();
-        });
-    });
-
-    // Add event listeners to payment methods
-    document.querySelectorAll('.payment-method').forEach(method => {
-        method.addEventListener('click', function() {
-            // Remove active class from all payment methods
-            document.querySelectorAll('.payment-method').forEach(m => {
-                m.classList.remove('ring-2', 'ring-yellow-400');
-            });
-            
-            // Add active class to selected payment method
-            this.classList.add('ring-2', 'ring-yellow-400');
-            
-            // Get the payment method from data attribute
-            selectedPaymentMethod = this.getAttribute('data-method');
-            
-            // Update the payment display
-            updatePaymentDisplay();
-        });
-    });
-
-    // Function to update order summary
-    function updateOrderSummary() {
-        if (selectedNominal) {
-            // Format the price for display (adding 'Rp' prefix)
-            const priceDisplay = `Rp${selectedNominal.price}`;
-            
-            // Update the price displays
-            document.getElementById('price-display').innerText = priceDisplay;
-            document.getElementById('total-price-display').innerText = priceDisplay;
-            
-            // Update the header of the "Membeli Item" section to include the diamond amount
-            const buyingItemElement = document.querySelector('.bg-gray-800.rounded.border.border-lime-300 .flex.justify-between:first-child span:first-child');
-            if (buyingItemElement) {
-                buyingItemElement.innerText = `Membeli Item: ${selectedNominal.amount}`;
-            }
-            
-            // Update the item details content for "Lihat rincian" section
-            const itemDetailLink = document.querySelector('.bg-gray-800.rounded.border.border-lime-300 .flex.justify-between:first-child a');
-            if (itemDetailLink) {
-                // Store the item details in a data attribute for display later
-                itemDetailLink.setAttribute('data-item-details', `Valorant - ${selectedNominal.amount}`);
-                
-                // Optional: Add click handler to show details
-                if (!itemDetailLink.hasAttribute('data-has-handler')) {
-                    itemDetailLink.setAttribute('data-has-handler', 'true');
-                    itemDetailLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        alert(`Detail pembelian:\n${this.getAttribute('data-item-details')}`);
-                    });
-                }
-            }
-        } else {
-            document.getElementById('price-display').innerText = 'Rp0';
-            document.getElementById('total-price-display').innerText = 'Rp0';
-            
-            // Reset text if nothing is selected
-            const buyingItemElement = document.querySelector('.bg-gray-800.rounded.border.border-lime-300 .flex.justify-between:first-child span:first-child');
-            if (buyingItemElement) {
-                buyingItemElement.innerText = 'Membeli Item';
-            }
-        }
-    }
-
-    // Function to update payment display
-    function updatePaymentDisplay() {
-        const paymentDisplay = document.getElementById('payment-method-display');
-        if (paymentDisplay && selectedPaymentMethod) {
-            paymentDisplay.innerText = selectedPaymentMethod;
-        } else if (paymentDisplay) {
-            paymentDisplay.innerText = 'Pilih metode pembayaran';
-        }
-    }
-    </script>
 </body>
 </html>
