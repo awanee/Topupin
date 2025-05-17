@@ -74,7 +74,7 @@ function setActiveTabByCurrentPage() {
         
         if (currentPage === 'home.html' && category === 'semua') {
             isActive = true;
-        } else if (currentPage === 'account.html' && category === 'akun') {
+        } else if (currentPage === 'Account.html' && category === 'akun') {
             isActive = true;
         } else if (currentPage === 'TopUp.html' && category === 'top up') {
             isActive = true;

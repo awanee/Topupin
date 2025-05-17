@@ -1,326 +1,288 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topupin - Minecraft Shop</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="assets/js/Home.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <title>Top Up</title>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Navbar Start -->
+    <nav class="bg-[#242424] p-3 border-b border-gray-800 text-white fixed top-0 w-full z-50">
+        <div class="flex justify-between items-center">
+
+            <!-- Logo Start -->
+            <div class="text-lg font-bold">
+                <a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a>
+            </div>
+            <!-- Logo End -->
+
+            <!-- Input Search Dan Hover Akun Start -->
+            <div class="hidden md:flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" class="text-gray-400 rounded px-3 py-1 w-48 bg-white" placeholder="Search..." />
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <i class="fas fa-search text-gray-400"></i>
+                    </button>
+                </div>
+                <a href="#" class="hover:text-[#D7FD52]">Akun saya</a>
+            </div>
+            <!-- Input Search Dan Hover Akun End -->
+            
+            <!-- Hamburger Button [Mobile] -->
+            <button class="md:hidden block focus:outline-none" onclick="toggleDropdown()">
+            <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Dropdown Hamburger Menu [Tampilan] -->
+    <div id="dropdownMenu" class="fixed top-12 left-0 w-full bg-[#242424] text-white z-40 hidden animate-slide-down">
+        <div class="flex flex-col px-6 py-4 space-y-4 border-t border-gray-700">
+            <div class="relative">
+                <input type="text" class="text-gray-400 rounded px-3 py-2 w-full bg-white" placeholder="Search..." />
+                <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <i class="fas fa-search text-gray-400"></i>
+                </button>
+            </div>
+            </a>
+            <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+            <i class="fas fa-user"></i> Akun Saya
+            </a>
+        </div>
+    </div>
+
+    <!-- Sript Untuk Hamburger -->
+    <script>
+        function toggleDropdown() {
+            const menu = document.getElementById("dropdownMenu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
     <style>
-        @media (max-width: 640px) {
-            .mobile-menu {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background-color: #242424;
-                width: 100%;
-                z-index: 50;
-                padding: 1rem;
-                border-bottom: 1px solid #333;
-                transition: all 0.3s ease-in-out;
+        .animate-slide-down {
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+            transform: translateY(-20px);
+            opacity: 0;
             }
-            .mobile-menu.hidden {
-                display: none;
+            to {
+            transform: translateY(0);
+            opacity: 1;
             }
         }
     </style>
-</head>
-<body class="bg-black">
-    <!-- Navbar -->
-    <nav class="bg-[#242424] p-3 border-b border-gray-800 text-white fixed top-0 w-full z-50">
-    <div class="flex justify-between items-center">
-        <!-- Logo -->
-        <div class="text-lg font-bold">
-            <a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a>
+    <!-- Navbar End -->
+
+    <!-- Banner Start -->
+    <div class="mt-[60px] relative overflow-hidden bg-black w-full aspect-[17/5] max-w-screen-xl mx-auto" id="carousel">
+        <!-- Wrapper gambar -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="assets/promosi1.png" alt="Banner 1"
+            class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
+            <img src="assets/promosi2.png" alt="Banner 2"
+            class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" />
         </div>
 
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center space-x-4">
-        <div class="relative">
-            <input type="text" class="bg-white text-gray-400 rounded px-3 py-1 w-48" placeholder="Search..." />
-            <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
-                <i class="fas fa-search text-gray-400 hover:text-lime-400"></i>
-            </button>
+        <!-- Tombol Indikator Start -->
+        <div class="absolute bottom-2 w-full flex justify-center space-x-2 z-10">
+            <button class="w-3 h-3 rounded-full bg-white" data-index="0"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
         </div>
-        <a href="#" class="hover:text-[#D7FD52] flex items-center gap-1">
-            <i class="fas fa-box"></i> Lacak Pesanan
-        </a>
-        <a href="#" class="hover:text-[#D7FD52]">Akun saya</a>
+        <!-- Tombol Indikator End -->
+
+        <!-- Script Tombol Indikator Start -->
+        <script>
+            const carousel = document.getElementById('carousel');
+            const images = carousel.querySelectorAll('img');
+            const buttons = carousel.querySelectorAll('button');
+            let currentIndex = 0;
+            let interval = null;
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                img.classList.toggle('opacity-100', i === index);
+                img.classList.toggle('opacity-0', i !== index);
+                });
+                buttons.forEach((btn, i) => {
+                btn.classList.toggle('bg-white', i === index);
+                btn.classList.toggle('bg-gray-500', i !== index);
+                });
+                currentIndex = index;
+            }
+
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                showImage(Number(btn.dataset.index));
+                resetInterval();
+                });
+            });
+
+            function nextImage() {
+                const nextIndex = (currentIndex + 1) % images.length;
+                showImage(nextIndex);
+            }
+
+            function resetInterval() {
+                clearInterval(interval);
+                interval = setInterval(nextImage, 5000);
+            }
+
+            showImage(0);
+            interval = setInterval(nextImage, 5000);
+        </script>
+        <!-- Script Tombol Indikator End -->
     </div>
+    <!-- Banner End -->
 
-    <!-- Burger Button (Mobile) -->
-    <button class="md:hidden block focus:outline-none" onclick="toggleDropdown()">
-      <i class="fas fa-bars text-xl"></i>
-    </button>
-  </div>
-</nav>
+    <!-- Tombol Navigasi Kategori Start -->
+    <div class="container mx-auto px-4 py-6">  
+        <div class="px-4 sm:px-6 mt-1 kategori-content">
+            <div class="flex justify-start gap-1 sm:gap-2">
+                <a href="Home.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">SEMUA</a>
+                <a href="TopUp.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
+                <a href="TopUp.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-lime-400 text-black px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate">AKUN</a>
+                <a href="#" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
+            </div>
+        </div>
+    </div>    
+    <!-- Tombol Navigasi Kategori End -->
 
-<!-- Mobile Dropdown Menu -->
-<div id="dropdownMenu" class="fixed top-12 left-0 w-full bg-[#242424] text-white z-40 hidden animate-slide-down">
-  <div class="flex flex-col px-6 py-4 space-y-4 border-t border-gray-700">
-    <div class="relative">
-      <input type="text" class="text-gray-400 rounded px-3 py-2 w-full" placeholder="Search..." />
-      <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
-        <i class="fas fa-search text-gray-400"></i>
-      </button>
+    <!-- Script Tombol Kategori Start -->
+    <script>
+        // Tampilkan konten sesuai kategori saat tombol ditekan
+        document.querySelectorAll('.kategori-btn').forEach(button => {
+            button.addEventListener('click', () => {
+            const kategori = button.dataset.kategori;
+
+                // Aktifkan tombol terpilih
+                document.querySelectorAll('.kategori-btn').forEach(btn => btn.classList.remove('bg-lime-400', 'text-black', 'font-bold'));
+                button.classList.add('bg-lime-400', 'text-black', 'font-bold');
+
+                // Tampilkan/hidden konten sesuai kategori
+                document.querySelectorAll('.kategori-content').forEach(content => {
+                content.style.display = (content.dataset.kategori === kategori || kategori === 'semua') ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+    <!-- Script Tombol Kategori End -->
+
+    <!-- Konten Produk Start -->
+    <div class="w-full max-w-[1450px] mx-auto bg-[#242424] rounded-2xl p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-6 text-white">
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logococ.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <a href="AccountCoc.html">
+                    <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+                </a>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logobalap.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logodf.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logoepep.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logofornite.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logomobile.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logopb.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logopokemon.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logopubg.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logoroblok.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+       <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logosaitama.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
+
+        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
+            <img src="assets/logogame/logovalo.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <div>
+                <p class="font-semibold text-sm sm:text-base md:text-xl">Minecraft Java & Bedrock <br class="hidden sm:block"> Edition - Microsoft</p>
+            </div>
+        </button>
     </div>
-    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
-      <i class="fas fa-box"></i> Lacak Pesanan
-    </a>
-    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
-      <i class="fas fa-user"></i> Akun Saya
-    </a>
-  </div>
-</div>
+    <!-- Konten Produk End -->
 
-<script>
-  function toggleDropdown() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.classList.toggle("hidden");
-  }
-</script>
-<style>
-  .animate-slide-down {
-    animation: slideDown 0.3s ease-out;
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-</style>
-
-
-    <!-- Main Content -->
-    <main class="container mx-auto my-6 px-4 mt-20">
-        <!-- Product Header -->
-        <div class="bg-black text-white p-4 rounded flex flex-col sm:flex-row items-center mb-6">
-            <div class="mr-0 sm:mr-4 mb-4 sm:mb-0">
-                <img src="assets/logogame/logococ.png" alt="Clash Of Clans Logo" class="w-16 h-16 rounded">
-            </div>
-            <div class="text-center sm:text-left">
-                <h1 class="text-lg font-bold">Clash Of Clans</h1>
-                <p class="text-sm text-gray-400">Beli Akun Clash Of Clans serta Gems pakai tools promo, harian hingga 395, Top Up COC termurah & proses instant di Topupin.</p>
-            </div>
-        </div>
-
-        <!-- Navigation Tabs -->
-        <div class="flex flex-wrap mb-6 text-center justify-center gap-2 sm:gap-4">
-            <a href="Home.html" class="kategori-btn flex-1 sm:flex-none sm:w-28  bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">SEMUA</a>
-            <a href="TopUp.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
-            <a href="Account.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-lime-300 text-black px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium">AKUN</a>
-            <a href="#" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
-        </div>
-
-        <!-- Product Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            <!-- Product 1 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 9" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 9 / TH 9</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SIAP MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp150.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 10" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 10 / TH 10</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SIAP MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp200.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 11" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 11 / TH 11</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SIAP MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp250.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 12" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 12 / TH 12</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SIAP MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp300.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 13" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 13 / TH 13</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SIAP MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp350.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 9" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 9 / TH 9</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SEMI MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp100.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- More products (continuing the pattern) -->
-            <!-- Product 7 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 10" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 10 / TH 10</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SEMI MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp150.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 11" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 11 / TH 11</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SEMI MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp200.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 9 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 12" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 12 / TH 12</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SEMI MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp250.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="bg-[#242424] text-white rounded overflow-hidden">
-                <div class="relative">
-                    <img src="assets/basecoc.png" alt="Town Hall 13" class="w-full">
-                    <span class="absolute top-2 left-2 bg-gray-800 text-white px-2 py-1 text-xs rounded">TOWN HALL 13 / TH 13</span>
-                    <span class="absolute top-2 right-2">
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </span>
-                </div>
-                <div class="p-3">
-                    <p class="font-bold mb-1 text-sm sm:text-base">SEMI MAX MURAH</p>
-                    <p class="text-lime-400 text-xs sm:text-sm mb-2">Rp300.000/ Akun</p>
-                    <button class="bg-lime-400 text-black px-3 sm:px-4 py-1 rounded text-xs sm:text-sm float-right mt-2 sm:mt-4 mb-2 sm:mb-3"><a href="Buy.html">Beli</a></button>
-                </div>
-            </div>
-
-            <!-- Additional products (can add more following the same pattern) -->
-            <!-- Product 11-25 follow the same pattern -->
-        </div>
-        
-        <!-- Pagination (optional) -->
-        <div class="flex justify-center mt-8">
-            <nav class="inline-flex rounded-md shadow">
-                <a href="#" class="px-3 py-2 rounded-l-md bg-[#242424] text-white hover:bg-lime-400 hover:text-black">
-                    <span class="sr-only">Previous</span>
-                    <i class="fas fa-chevron-left"></i>
-                </a>
-                <a href="#" class="px-3 py-2 bg-lime-400 text-black">1</a>
-                <a href="#" class="px-3 py-2 bg-[#242424] text-white hover:bg-lime-400 hover:text-black">2</a>
-                <a href="#" class="px-3 py-2 bg-[#242424] text-white hover:bg-lime-400 hover:text-black">3</a>
-                <a href="#" class="px-3 py-2 rounded-r-md bg-[#242424] text-white hover:bg-lime-400 hover:text-black">
-                    <span class="sr-only">Next</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </nav>
-        </div>
-    </main>
-    
-    <!-- Footer -->
+    <!-- Footer - MOVED OUTSIDE the container div -->
     <footer class="bg-[#242424] mt-10 rounded-t-[15px] w-full">
-        <div class="container mx-auto px-4 py-6">
+        <div class="container mx-auto px-4 py-2">
             <div class="flex flex-col md:flex-row justify-between mb-6">
                 <!-- Left -->
-                <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <div class="text-xl font-bold mb-2 text-white font-sans">Topup<span class="text-[#D7FD52]">in</span></div>
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold mb-1 text-white font-sans">Topup<span class="text-[#D7FD52]">in</span></div>
                     <div class="text-sm text-gray-400 font-sans">Game Voucher</div>
                 </div>
                 
                 <!-- Right -->
-                <div class="text-center md:text-right">
-                    <div class="text-sm font-semibold mb-3 text-white font-sans">Metode Pembayaran</div>
-                    <div class="flex flex-wrap justify-center md:justify-end gap-3">
+                <div class="text-right">
+                    <div class="text-sm font-semibold mb-2 text-white font-sans">Metode Pembayaran</div>
+                    <div class="flex flex-wrap justify-end gap-2">
                         <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
                             <img src="assets/logopembayaran/qris.png" alt="QRIS" class="w-full h-full object-contain">
                         </div>
@@ -337,8 +299,8 @@
                 </div>
             </div>
 
-            <!-- Footer bottom -->
-            <div class="border-t border-gray-800 pt-4 flex flex-wrap gap-4 justify-center text-xs text-gray-500 font-sans">
+            <!-- Footer bawah -->
+            <div class="border-t border-gray-800 pt-4 flex flex-wrap gap-4 justify-center md:justify-start text-xs text-gray-500 font-sans">
                 <span>©2023</span>
                 <span>Privacy</span>
                 <span>Terms</span>
@@ -347,17 +309,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- JavaScript for mobile menu toggle -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
