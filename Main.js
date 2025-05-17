@@ -76,7 +76,7 @@ function setActiveTabByCurrentPage() {
             isActive = true;
         } else if (currentPage === 'account.html' && category === 'akun') {
             isActive = true;
-        } else if (currentPage === 'topup.html' && category === 'top up') {
+        } else if (currentPage === 'TopUp.html' && category === 'top up') {
             isActive = true;
         } else if (currentPage === 'jasa.html' && category === 'jasa joki') {
             isActive = true;
@@ -229,7 +229,7 @@ function initShoppingCart() {
     
     buyButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            if (!button.textContent.includes('Beli')) return;
+            if (!button.textContent.includes("Buy.html")) return;
             
             e.preventDefault();
             

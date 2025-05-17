@@ -7,24 +7,31 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <script src="Main.js"></script>
+  <script src="Buy.js"></script>
 </head>
 <body class="bg-black text-white">
-  <!-- Header -->
-    <header class="flex justify-between items-center bg-gray-900 p-4">
-        <h1 class="text-xl font-bold text-white"><a href="Home.html" class="hover:text-gray-300">Topup<span class="text-lime-400">in</span></a></h1>
-        <div class="flex items-center space-x-2">
-            <input type="text" placeholder="Cari" class="rounded px-2 py-1 text-gray-500 bg-white">
-            <button class="bg-gray-800 px-2 py-1 text-white hover:text-lime-400 rounded">
-                <i class="fas fa-search"></i>
-            </button>
-            <button class="mr-4 text-white hover:text-lime-400">
-                <i class="fas fa-shopping-cart"></i>
-            </button>
-            <button class="bg-transparent text-white hover:text-lime-400">
-            Akun saya
-            </button>
+  <!-- Navigation Bar -->
+    <nav class="bg-[#242424]  p-3 flex justify-between items-center border-b border-gray-800">
+        <div class="text-lg font-bold text-white"><a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a></div> 
+        <div class="flex items-center">
+            <div class="relative mx-2">
+                <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search...">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <i class="fas fa-search text-gray-400"></i>
+                </button>
+            </div>
+            <button class="mx-2 text-white hover:text-[#D7FD52]"><i class="fas fa-shopping-cart"></i></button>
+            <div class="mx-2 text-white hover:text-[#D7FD52]">Akun saya</div>
         </div>
-    </header>
+    </nav>
+
+  <!-- Back Button -->
+  <div class="container mx-auto px-4 pt-4">
+    <button onclick="window.history.back()" class="flex items-center space-x-2 text-gray-300 hover:text-lime-400 transition-colors duration-200">
+      <i class="fas fa-arrow-left"></i>
+      <span>Kembali</span>
+    </button>
+  </div>
 
   <!-- Main Content -->
   <main class="container mx-auto px-4 py-6">
@@ -264,24 +271,44 @@
     </section>
   </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-white mt-8 py-6 border-t-4 border-gray-300 rounded">
-        <div class="container mx-auto px-4">
-        <div class="mb-6">
-            <h2 class="text-xl font-bold text-white">Topup<span class="text-lime-400">in</span></h2>
-            <p class="text-sm text-gray-300 hover:text-lime-400">bantuan</p>
-            <p class="text-sm text-gray-300 hover:text-lime-400">promo/topupin</p>
-        </div>
-
-        <div class="mb-6 text-center">
-            <p class="text-sm text-gray-300 mb-1">Metode Pembayaran:</p>
-            <div class="flex justify-center gap-2 items-center mt-2 mb-1">
-            <img src="assets/logopembayaran/blu.png" alt="blu" class="w-10">
-            <img src="assets/logopembayaran/dana.png" alt="dana" class="w-10">
-            <img src="assets/logopembayaran/ovo.png" alt="ovo" class="w-10">
-            <img src="assets/logopembayaran/qris.png" alt="qris" class="w-10">
+    <!-- Footer - MOVED OUTSIDE the container div -->
+    <footer class="bg-[#242424] mt-10 rounded-t-[15px] w-full">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex flex-col md:flex-row justify-between mb-6">
+                <!-- Left -->
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold mb-1 text-white font-sans">Topup<span class="text-[#D7FD52]">in</span></div>
+                    <div class="text-sm text-gray-400 font-sans">Game Voucher</div>
+                </div>
+                
+                <!-- Right -->
+                <div class="text-right">
+                    <div class="text-sm font-semibold mb-2 text-white font-sans">Metode Pembayaran</div>
+                    <div class="flex flex-wrap justify-end gap-2">
+                        <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
+                            <img src="assets/logopembayaran/qris.png" alt="QRIS" class="w-full h-full object-contain">
+                        </div>
+                        <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
+                            <img src="assets/logopembayaran/blu.png" alt="BLU" class="w-full h-full object-contain">
+                        </div>
+                        <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
+                            <img src="assets/logopembayaran/dana.png" alt="DANA" class="w-full h-full object-contain">
+                        </div>
+                        <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
+                            <img src="assets/logopembayaran/ovo.png" alt="OVO" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <!-- Footer bawah -->
+            <div class="border-t border-gray-800 pt-4 flex flex-wrap gap-4 justify-center md:justify-start text-xs text-gray-500 font-sans">
+                <span>©2023</span>
+                <span>Privacy</span>
+                <span>Terms</span>
+                <span>Sitemap</span>
+                <span>Blog</span>
+            </div>
         </div>
     </footer>
 </body>
