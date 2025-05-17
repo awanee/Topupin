@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="Main.js"></script>
+    <script src="assets/js/Home.js"></script>
     <style>
         @media (max-width: 640px) {
             .mobile-menu {
@@ -30,44 +30,79 @@
     </style>
 </head>
 <body class="bg-black">
-    <!-- Navigation Bar -->
-    <nav class="bg-[#242424] p-3 flex flex-wrap justify-between items-center border-b border-gray-800 relative">
-        <div class="text-lg font-bold text-white"><a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a></div> 
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="lg:hidden text-white">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex items-center">
-            <div class="relative mx-2">
-                <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search...">
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
-                    <i class="fas fa-search text-gray-400"></i>
-                </button>
-            </div>
-            <button class="mx-2 text-white hover:text-[#D7FD52]"><i class="fas fa-shopping-cart"></i></button>
-            <div class="mx-2 text-white hover:text-[#D7FD52]">Akun saya</div>
+    <!-- Navbar -->
+    <nav class="bg-[#242424] p-3 border-b border-gray-800 text-white fixed top-0 w-full z-50">
+    <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-lg font-bold">
+            <a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a>
         </div>
-        
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="mobile-menu hidden w-full lg:hidden">
-            <div class="relative my-2 w-full">
-                <input type="text" class="text-gray-400 rounded px-3 py-1 w-full" placeholder="Search...">
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
-                    <i class="fas fa-search text-gray-400"></i>
-                </button>
-            </div>
-            <div class="flex justify-between w-full my-2">
-                <button class="text-white hover:text-[#D7FD52]"><i class="fas fa-shopping-cart mr-1"></i> Keranjang</button>
-                <div class="text-white hover:text-[#D7FD52]">Akun saya</div>
-            </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-4">
+        <div class="relative">
+            <input type="text" class="bg-white text-gray-400 rounded px-3 py-1 w-48" placeholder="Search..." />
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                <i class="fas fa-search text-gray-400 hover:text-lime-400"></i>
+            </button>
         </div>
-    </nav>
+        <a href="#" class="hover:text-[#D7FD52] flex items-center gap-1">
+            <i class="fas fa-box"></i> Lacak Pesanan
+        </a>
+        <a href="#" class="hover:text-[#D7FD52]">Akun saya</a>
+    </div>
+
+    <!-- Burger Button (Mobile) -->
+    <button class="md:hidden block focus:outline-none" onclick="toggleDropdown()">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<div id="dropdownMenu" class="fixed top-12 left-0 w-full bg-[#242424] text-white z-40 hidden animate-slide-down">
+  <div class="flex flex-col px-6 py-4 space-y-4 border-t border-gray-700">
+    <div class="relative">
+      <input type="text" class="text-gray-400 rounded px-3 py-2 w-full" placeholder="Search..." />
+      <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+        <i class="fas fa-search text-gray-400"></i>
+      </button>
+    </div>
+    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+      <i class="fas fa-box"></i> Lacak Pesanan
+    </a>
+    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+      <i class="fas fa-user"></i> Akun Saya
+    </a>
+  </div>
+</div>
+
+<script>
+  function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("hidden");
+  }
+</script>
+<style>
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
 
     <!-- Main Content -->
-    <main class="container mx-auto my-6 px-4">
+    <main class="container mx-auto my-6 px-4 mt-20">
         <!-- Product Header -->
         <div class="bg-black text-white p-4 rounded flex flex-col sm:flex-row items-center mb-6">
             <div class="mr-0 sm:mr-4 mb-4 sm:mb-0">
@@ -81,11 +116,10 @@
 
         <!-- Navigation Tabs -->
         <div class="flex flex-wrap mb-6 text-center justify-center gap-2 sm:gap-4">
-            <a href="Home.html" class="kategori-btn bg-[#242424] text-white px-4 sm:px-8 py-2 rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black text-xs sm:text-sm">SEMUA</a>
-            <a href="TopUp.html" class="kategori-btn bg-[#242424] text-white px-4 sm:px-8 py-2 rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black text-xs sm:text-sm">TOP UP</a>
-            <a href="Account.html" class="kategori-btn bg-[#D7FD52] text-black px-4 sm:px-8 py-2 rounded-lg text-xs sm:text-sm">AKUN</a>
-            <a href="#" class="kategori-btn bg-[#242424] text-white px-4 sm:px-8 py-2 rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black text-xs sm:text-sm">ITEM</a>
-            <a href="#" class="kategori-btn bg-[#242424] text-white px-4 sm:px-8 py-2 rounded-lg transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black text-xs sm:text-sm">JASA JOKI</a>
+            <a href="Home.html" class="kategori-btn flex-1 sm:flex-none sm:w-28  bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">SEMUA</a>
+            <a href="TopUp.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">TOP UP</a>
+            <a href="Account.html" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-lime-300 text-black px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium">AKUN</a>
+            <a href="#" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
         </div>
 
         <!-- Product Grid -->
