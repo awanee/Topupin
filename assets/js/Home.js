@@ -72,15 +72,13 @@ function setActiveTabByCurrentPage() {
         const category = button.dataset.category || button.textContent.trim().toLowerCase();
         let isActive = false;
         
-        if (currentPage === 'home.html' && category === 'semua') {
+        if (currentPage === '../../home.html' && category === 'semua') {
             isActive = true;
-        } else if (currentPage === 'Account.html' && category === 'akun') {
+        } else if (currentPage === '../../pages/Account.html' && category === 'akun') {
             isActive = true;
-        } else if (currentPage === 'TopUp.html' && category === 'top up') {
+        } else if (currentPage === '../../pages/TopUp.html' && category === 'top up') {
             isActive = true;
         } else if (currentPage === 'jasa.html' && category === 'jasa joki') {
-            isActive = true;
-        } else if (currentPage === 'item.html' && category === 'item') {
             isActive = true;
         }
         
