@@ -15,20 +15,77 @@
   </style>
 </head>
 <body class="bg-black text-white font-sans">
-  <!-- Navigation Bar -->
-    <nav class="bg-[#242424] p-3 flex justify-between items-center border-b border-gray-800">
-        <div class="text-lg font-bold text-white"><a href="Home.html">Topup<span class="text-[#D7FD52]">in</span></a></div> 
-        <div class="flex items-center">
-            <div class="relative mx-2">
-                <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search...">
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
-                    <i class="fas fa-search text-gray-400"></i>
-                </button>
-            </div>
-            <button class="mx-2 text-white hover:text-[#D7FD52]"><i class="fas fa-shopping-cart"></i></button>
-            <div class="mx-2 text-white hover:text-[#D7FD52]">Akun saya</div>
+    <!-- Navbar -->
+    <nav class="bg-[#242424] p-3 border-b border-gray-800 text-white fixed top-0 w-full z-50">
+    <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-lg font-bold">
+            <a href="../Home.html">Topup<span class="text-[#D7FD52]">in</span></a>
         </div>
-    </nav>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-4">
+        <div class="relative">
+            <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search..." />
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                <i class="fas fa-search text-gray-400"></i>
+            </button>
+        </div>
+        <a href="History.html" class="hover:text-[#D7FD52] flex items-center gap-1">
+            <i class="fas fa-box"></i> Lacak Pesanan
+        </a>
+        <a href="#" class="hover:text-[#D7FD52]">
+          <i class="fas fa-user"></i>
+        </a>
+    </div>
+
+    <!-- Burger Button (Mobile) -->
+    <button class="md:hidden block focus:outline-none" onclick="toggleDropdown()">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<div id="dropdownMenu" class="fixed top-12 left-0 w-full bg-[#242424] text-white z-40 hidden animate-slide-down">
+  <div class="flex flex-col px-6 py-4 space-y-4 border-t border-gray-700">
+    <div class="relative">
+      <input type="text" class="text-gray-400 rounded px-3 py-2 w-full" placeholder="Search..." />
+      <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+        <i class="fas fa-search text-gray-400"></i>
+      </button>
+    </div>
+    <a href="History.html" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+      <i class="fas fa-box"></i> Lacak Pesanan
+    </a>
+    <a href="#" class="hover:text-[#D7FD52] text-lg flex items-center gap-2">
+      <i class="fas fa-user"></i> Akun Saya
+    </a>
+  </div>
+</div>
+
+<script>
+  function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("hidden");
+  }
+</script>
+<style>
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
 
   <!-- Main Content -->
   <main class="p-4 pt-20 container mx-auto px-4">
