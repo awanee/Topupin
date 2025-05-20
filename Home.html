@@ -64,7 +64,6 @@
     </a>
   </div>
 </div>
-
 <script>
   function toggleDropdown() {
     const menu = document.getElementById("dropdownMenu");
@@ -88,64 +87,97 @@
   }
 </style>
 
-
   <!-- Carousel (placeholder image) -->
+<div class="mt-[60px] relative overflow-hidden bg-black w-full aspect-[17/5] max-w-screen-xl mx-auto rounded-2xl" id="carousel">
+  <!-- Wrapper gambar -->
+  <div class="absolute inset-0 w-full h-full">
+    <img src="../assets/promo/promosi1.png" alt="Banner 1"
+      class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 rounded-2xl" />
+    <img src="../assets/promo/promosi2.png" alt="Banner 2"
+      class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 rounded-2xl" />
+  </div>
 
-  <div class="mt-[60px] relative overflow-hidden bg-black w-full aspect-[17/5] max-w-screen-xl mx-auto" id="carousel">
-    <!-- Wrapper gambar -->
-    <div class="absolute inset-0 w-full h-full">
-        <img src="../assets/promo/promosi1.png" alt="Banner 1"
-        class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
-        <img src="../assets/promo/promosi2.png" alt="Banner 2"
-        class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" />
-    </div>
+  <!-- Tombol kiri -->
+  <button id="prev"
+    class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-2">
+    &#10094;
+  </button>
+
+  <!-- Tombol kanan -->
+  <button id="next"
+    class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-2">
+    &#10095;
+  </button>
 
   <!-- Tombol indikator -->
   <div class="absolute bottom-2 w-full flex justify-center space-x-2 z-10">
-    <button class="w-3 h-3 rounded-full bg-white" data-index="0"></button>
-    <button class="w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
+    <button class="carousel-indicator w-3 h-3 rounded-full bg-white" data-index="0"></button>
+    <button class="carousel-indicator w-3 h-3 rounded-full bg-gray-500" data-index="1"></button>
   </div>
 </div>
 
-
 <script>
-  const carousel = document.getElementById('carousel');
-  const images = carousel.querySelectorAll('img');
-  const buttons = carousel.querySelectorAll('button');
-  let currentIndex = 0;
-  let interval = null;
+  const images = document.querySelectorAll('.carousel-image');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
 
-  function showImage(index) {
+  let currentIndex = 0;
+  let intervalId;
+
+  function showSlide(index) {
     images.forEach((img, i) => {
       img.classList.toggle('opacity-100', i === index);
       img.classList.toggle('opacity-0', i !== index);
     });
-    buttons.forEach((btn, i) => {
+
+    indicators.forEach((btn, i) => {
       btn.classList.toggle('bg-white', i === index);
       btn.classList.toggle('bg-gray-500', i !== index);
     });
+
     currentIndex = index;
   }
 
-  buttons.forEach((btn) => {
+  function nextSlide() {
+    let newIndex = (currentIndex + 1) % images.length;
+    showSlide(newIndex);
+  }
+
+  function prevSlide() {
+    let newIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(newIndex);
+  }
+
+  indicators.forEach(btn => {
     btn.addEventListener('click', () => {
-      showImage(Number(btn.dataset.index));
+      let index = parseInt(btn.getAttribute('data-index'));
+      showSlide(index);
       resetInterval();
     });
   });
 
-  function nextImage() {
-    const nextIndex = (currentIndex + 1) % images.length;
-    showImage(nextIndex);
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  function startInterval() {
+    intervalId = setInterval(nextSlide, 5000);
   }
 
   function resetInterval() {
-    clearInterval(interval);
-    interval = setInterval(nextImage, 5000);
+    clearInterval(intervalId);
+    startInterval();
   }
 
-  showImage(0);
-  interval = setInterval(nextImage, 5000);
+  showSlide(0);
+  startInterval();
 </script>
 
   <!-- Kategori -->
@@ -187,50 +219,49 @@
 
   <div class="container mx-auto px-4 py-6">
     <!-- Desktop/Tablet Grid -->
-    <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <!-- Card 1 -->
-      <div class="w-full rounded overflow-hidden">
-        <img src="/assets/diskon/diskon1.png" alt="produk" class="w-full h-auto object-cover rounded">
-      </div>
-      
-      <!-- Card 2 -->
-      <div class="w-full rounded overflow-hidden">
-        <img src="/assets/diskon/diskon2.png" alt="produk" class="w-full h-auto object-cover rounded">
-      </div>
-      
-      <!-- Card 3 -->
-      <div class="w-full rounded overflow-hidden">
-        <img src="/assets/diskon/diskon3.png" alt="produk" class="w-full h-auto object-cover rounded">
-      </div>
-    </div>
+<div class="hidden sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+  <!-- Card 1 -->
+  <div class="w-full rounded overflow-hidden">
+    <img src="/assets/diskon/diskon1.png" alt="produk" class="w-full h-auto object-cover rounded">
+  </div>
+  
+  <!-- Card 2 -->
+  <div class="w-full rounded overflow-hidden">
+    <img src="/assets/diskon/diskon2.png" alt="produk" class="w-full h-auto object-cover rounded">
+  </div>
+  
+  <!-- Card 3 -->
+  <div class="w-full rounded overflow-hidden">
+    <img src="/assets/diskon/diskon3.png" alt="produk" class="w-full h-auto object-cover rounded">
+  </div>
+</div>
     
-    <!-- Mobile Slider -->
-    <div class="sm:hidden relative">
-      <div class="slider-container flex transition-transform duration-300 ease-in-out">
-        <!-- Slide 1 -->
-        <div class="slide min-w-full px-2">
-          <img src="/assets/diskon/diskon1.png" alt="produk" class="w-full h-auto object-cover rounded">
-        </div>
-        
-        <!-- Slide 2 -->
-        <div class="slide min-w-full px-2">
-          <img src="/assets/diskon/diskon2.png" alt="produk" class="w-full h-auto object-cover rounded">
-        </div>
-        
-        <!-- Slide 3 -->
-        <div class="slide min-w-full px-2">
-          <img src="/assets/diskon/diskon3.png" alt="produk" class="w-full h-auto object-cover rounded">
-        </div>
-      </div>
-      
-      <!-- Dots -->
-      <div class="dots-container flex justify-center mt-4">
-        <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none active-dot bg-gray-700"></button>
-        <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
-        <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
-      </div>
+   <!-- Mobile Slider -->
+<div class="sm:hidden relative">
+  <div class="slider-container flex transition-transform duration-300 ease-in-out">
+    <!-- Slide 1 -->
+    <div class="slide min-w-full px-4 flex justify-center">
+      <img src="/assets/diskon/diskon1.png" alt="produk" class="w-[75%] h-auto object-cover rounded">
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide min-w-full px-4 flex justify-center">
+      <img src="/assets/diskon/diskon2.png" alt="produk" class="w-[75%] h-auto object-cover rounded">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide min-w-full px-4 flex justify-center">
+      <img src="/assets/diskon/diskon3.png" alt="produk" class="w-[75%] h-auto object-cover rounded">
     </div>
   </div>
+
+  <!-- Dots -->
+  <div class="dots-container flex justify-center mt-4">
+    <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none active-dot bg-gray-700"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
+  </div>
+</div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
