@@ -47,11 +47,11 @@ function initCategoryTabs() {
             // Remove active class from all buttons
             categoryButtons.forEach(btn => {
                 btn.classList.remove('bg-lime-400', 'text-black');
-                btn.classList.add('bg-gray-700', 'text-white');
+                btn.classList.add('bg-zinc-800', 'text-white');
             });
             
             // Add active class to clicked button
-            this.classList.remove('bg-gray-700', 'text-white');
+            this.classList.remove('bg-zinc-800', 'text-white');
             this.classList.add('bg-lime-400', 'text-black');
             
             // Filter products by category if no navigation occurred
@@ -67,30 +67,31 @@ function initCategoryTabs() {
 function setActiveTabByCurrentPage() {
     const currentPage = window.location.pathname.split('/').pop().toLowerCase();
     const categoryButtons = document.querySelectorAll('.kategori-btn');
-    
+
     categoryButtons.forEach(button => {
         const category = button.dataset.category || button.textContent.trim().toLowerCase();
         let isActive = false;
-        
-        if (currentPage === '../../home.html' && category === 'semua') {
+
+        if (currentPage === 'home.html' && category === 'semua') {
             isActive = true;
-        } else if (currentPage === '../../pages/Account.html' && category === 'akun') {
+        } else if (currentPage === 'account.html' && category === 'akun') {
             isActive = true;
-        } else if (currentPage === '../../pages/TopUp.html' && category === 'top up') {
+        } else if (currentPage === 'topup.html' && category === 'top up') {
             isActive = true;
         } else if (currentPage === 'jasa.html' && category === 'jasa joki') {
             isActive = true;
         }
-        
+
         if (isActive) {
-            button.classList.remove('bg-gray-700', 'text-white');
+            button.classList.remove('bg-zinc-800', 'text-white');
             button.classList.add('bg-lime-400', 'text-black');
         } else {
             button.classList.remove('bg-lime-400', 'text-black');
-            button.classList.add('bg-gray-700', 'text-white');
+            button.classList.add('bg-zinc-800', 'text-white');
         }
     });
 }
+
 
 // Filter products by category
 function filterProductsByCategory(category) {
