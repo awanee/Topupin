@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/oTopupin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
   <style>
     .scrollbar-hidden::-webkit-scrollbar {
       display: none;
@@ -25,7 +25,7 @@
     <!-- Desktop Menu -->
     <div class="hidden md:flex items-center space-x-4">
         <div class="relative">
-            <input type="text" class="text-gray-400 rounded px-3 py-1 w-48" placeholder="Search..." />
+            <input type="text" class="text-gray-400 rounded px-3 py-1 w-48 bg-white" placeholder="Search..." />
             <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
                 <i class="fas fa-search text-gray-400"></i>
             </button>
@@ -49,7 +49,7 @@
 <div id="dropdownMenu" class="fixed top-12 left-0 w-full bg-[#242424] text-white z-40 hidden animate-slide-down">
   <div class="flex flex-col px-6 py-4 space-y-4 border-t border-gray-700">
     <div class="relative">
-      <input type="text" class="text-gray-400 rounded px-3 py-2 w-full" placeholder="Search..." />
+      <input type="text" class="text-gray-400 rounded px-3 py-2 w-full bg-white" placeholder="Search..." />
       <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
         <i class="fas fa-search text-gray-400"></i>
       </button>
@@ -91,10 +91,10 @@
     <div class="mt-[60px] relative overflow-hidden bg-black w-full aspect-[17/5] max-w-screen-xl mx-auto" id="carousel">
         <!-- Wrapper gambar -->
         <div class="absolute inset-0 w-full h-full">
-            <img src="../assets/promo/promosi1.png" alt="Banner 1"
-            class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" />
-            <img src="../assets/promo/promosi2.png" alt="Banner 2"
-            class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" />
+            <img src="../assets/promo/promosi1.png" alt="Banner 1" loading="lazy"
+            class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100"/>
+            <img src="../assets/promo/promosi2.png" alt="Banner 2" loading="lazy"
+            class="carousel-image absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0"/>
         </div>
 
         <!-- Tombol Indikator Start -->
@@ -184,7 +184,7 @@
     <!-- Konten Produk Start -->
     <div class="w-full max-w-[1450px] mx-auto bg-[#242424] rounded-2xl p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-6 text-white">
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logococ.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logococ.png" alt="Clash of Clans" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <a href="PagesPerAccountGame/AccountCoc.html">
                     <p class="font-semibold text-sm sm:text-base md:text-xl">Clash of Clans<br class="hidden sm:block"> Edition - Microsoft</p>
@@ -193,77 +193,77 @@
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logobalap.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logobalap.png" alt="Asphalt 9" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Asphalt 9 Legends<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logodf.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logodf.png" alt="Delta Force" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Garena Delta Force<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logoepep.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logoepep.png" alt="Free Fire" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Garena Free Fire<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logofornite.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logofornite.png" alt="Frotnite" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Fortnite<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logomobile.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logomobile.png" alt="Mobile Legend" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Mobile Legend<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logopb.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logopb.png" alt="Point Blank" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Point Blank<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logopokemon.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logopokemon.png" alt="Pokemon" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Pokemon<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logopubg.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logopubg.png" alt="pubg" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">PUBG<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logoroblok.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logoroblok.png" alt="Roblox" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Roblox<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
        <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logosaitama.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logosaitama.png" alt="One Punch Man" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">One Punch Man<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
         </button>
 
         <button class="w-full flex items-center space-x-3 sm:space-x-4 p-3 rounded-xl hover:bg-[#2c2c2c] transition-all cursor-pointer text-left">
-            <img src="../assets/logogame/logovalo.png" alt="epep" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
+            <img src="../assets/logogame/logovalo.png" alt="Valorant" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded object-cover flex-shrink-0" />
             <div>
                 <p class="font-semibold text-sm sm:text-base md:text-xl">Valorant<br class="hidden sm:block"> Edition - Microsoft</p>
             </div>
