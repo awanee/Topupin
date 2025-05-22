@@ -6,7 +6,7 @@
   <title>Topupin</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/oTopupin.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/Home.js"></script>
   <style>
     .scrollbar-hidden::-webkit-scrollbar {
@@ -191,6 +191,7 @@
         <a href="#" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition duration-150 ease-in-out hover:bg-lime-400 hover:text-black">JASA JOKI</a>
       </div>
     </div>
+ </div>
 
    <script>
     // Tampilkan konten sesuai kategori saat tombol ditekan
@@ -217,13 +218,13 @@
     <span class="bg-lime-400 text-black px-2 py-1 rounded font-mono text-sm" id="countdown">0:22:40:32</span>
   </div>
 
-  <div class="container mx-auto px-4 py-6">
+<div class="container mx-auto px-4 py-6">
     <!-- Desktop/Tablet Grid -->
-<div class="hidden sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+  <div class="hidden sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
   <!-- Card 1 -->
-  <div class="w-full rounded overflow-hidden">
+    <div class="w-full rounded overflow-hidden">
     <img src="/assets/diskon/diskon1.png" alt="produk" class="w-full h-auto object-cover rounded">
-  </div>
+    </div>
   
   <!-- Card 2 -->
   <div class="w-full rounded overflow-hidden">
@@ -231,12 +232,13 @@
   </div>
   
   <!-- Card 3 -->
-  <div class="w-full rounded overflow-hidden">
+    <div class="w-full rounded overflow-hidden">
     <img src="/assets/diskon/diskon3.png" alt="produk" class="w-full h-auto object-cover rounded">
-  </div>
+    </div>
+ </div>
 </div>
-    
-   <!-- Mobile Slider -->
+
+    <!-- Mobile Slider -->
 <div class="sm:hidden relative">
   <div class="slider-container flex transition-transform duration-300 ease-in-out">
     <!-- Slide 1 -->
@@ -261,6 +263,7 @@
     <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
     <button class="dot w-3 h-3 rounded-full bg-gray-300 mx-1 focus:outline-none"></button>
   </div>
+</div>
 </div>
 
   <script>
@@ -427,55 +430,203 @@
         </div>
         </div>
       </div>
-
     </div>
   </div>
+
   <!-- Kategori Game: Top Up, Akun, Item, Jasa Joki -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8 px-4">
-  
-  <!-- TOP UP GAME -->
-  <div class="bg-gray-900 p-4 rounded-xl">
-    <h3 class="text-white font-semibold mb-4">TOP UP GAME</h3>
-    <div class="grid grid-cols-3 gap-4">
-      <img src="/assets/logogame/logomobile.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logococ.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logodf.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logovalo.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logoepep.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logofornite.png" alt="game" class="rounded">
-    </div>
-    <a href="#" class="block mt-4 text-center bg-lime-400 text-black py-2 rounded-lg font-semibold">Lihat semua</a>
-  </div>
+        
+        <!-- Desktop and Tablet Layout -->
+        <div class="hidden md:grid grid-cols-3 xl:grid-cols-3 gap-6 mt-8">
+          
+          <!-- TOP UP GAME -->
+          <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h3 class="text-white font-semibold text-xl mb-6">TOP UP GAME</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logobalap.png" alt="Balap" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logococ.png" alt="Clash of Clans" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logodf.png" alt="Dragon Force" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logoepep.png" alt="epep" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logofornite.png" alt="fortnite" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logomobile.png" alt="ML" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <a href="#" class="block mt-6 text-center bg-lime-400 text-black py-3 rounded-lg font-semibold hover:bg-lime-500 transition-colors duration-200">
+              Lihat semua
+            </a>
+          </div>
 
-  <!-- AKUN -->
-  <div class="bg-gray-900 p-4 rounded-xl">
-    <h3 class="text-white font-semibold mb-4">AKUN</h3>
-    <div class="grid grid-cols-3 gap-4">
-      <img src="/assets/logogame/logobalap.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logococ.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logodf.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logovalo.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logoepep.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logofornite.png" alt="game" class="rounded">
-    </div>
-    <a href="#" class="block mt-4 text-center bg-lime-400 text-black py-2 rounded-lg font-semibold">Lihat semua</a>
-  </div>
+          <!-- AKUN -->
+          <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h3 class="text-white font-semibold text-xl mb-6">AKUN</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logobalap.png" alt="Balap" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logococ.png" alt="Clash of Clans" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logodf.png" alt="Dragon Force" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logoepep.png" alt="epep" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logofornite.png" alt="fortnite" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logomobile.png" alt="ML" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <a href="#" class="block mt-6 text-center bg-lime-400 text-black py-3 rounded-lg font-semibold hover:bg-lime-500 transition-colors duration-200">
+              Lihat semua
+            </a>
+          </div>
 
-  <!-- JASA JOKI -->
-  <div class="bg-gray-900 p-4 rounded-xl">
-    <h3 class="text-white font-semibold mb-4">JASA JOKI</h3>
-    <div class="grid grid-cols-3 gap-4">
-      <img src="/assets/logogame/logobalap.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logococ.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logodf.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logovalo.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logoepep.png" alt="game" class="rounded">
-      <img src="/assets/logogame/logofornite.png" alt="game" class="rounded">
-    </div>
-    <a href="#" class="block mt-4 text-center bg-lime-400 text-black py-2 rounded-lg font-semibold">Lihat semua</a>
-  </div>
+          <!-- JASA JOKI -->
+          <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <h3 class="text-white font-semibold text-xl mb-6">JASA JOKI</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logobalap.png" alt="Balap" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logococ.png" alt="Clash of Clans" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logodf.png" alt="Dragon Force" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logoepep.png" alt="epep" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logofornite.png" alt="fortnite" class="w-full h-full object-cover">
+              </div>
+              <div class="aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200">
+                <img src="/assets/logogame/logomobile.png" alt="ML" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <a href="#" class="block mt-6 text-center bg-lime-400 text-black py-3 rounded-lg font-semibold hover:bg-lime-500 transition-colors duration-200">
+              Lihat semua
+            </a>
+          </div>
 
-</div>
+        </div>
+
+        <!-- Mobile Layout -->
+        <div class="md:hidden space-y-6 mt-8">
+          
+          <!-- TOP UP GAME - Mobile -->
+          <div class="bg-gray-900 rounded-xl shadow-lg">
+            <div class="p-4 flex items-center justify-between">
+              <h3 class="text-white font-semibold text-lg">TOP UP GAME</h3>
+              <a href="#" class="text-lime-400 text-sm font-medium">Lihat semua</a>
+            </div>
+            <div class="px-4 pb-4">
+              <div class="flex gap-3 overflow-x-auto scrollbar-hidden pb-2">
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logobalap.png" alt="Balapclass="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logococ.png" alt="Clash of Clans" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logodf.png" alt="Dragon Force" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logoepep.png" alt="epep" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logofornite.png" alt="Fortnite" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logomobile.png" alt="ML" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logopb.png" alt="pb" class="w-full h-full object-cover">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AKUN - Mobile -->
+          <div class="bg-gray-900 rounded-xl shadow-lg">
+            <div class="p-4 flex items-center justify-between">
+              <h3 class="text-white font-semibold text-lg">AKUN</h3>
+              <a href="#" class="text-lime-400 text-sm font-medium">Lihat semua</a>
+            </div>
+            <div class="px-4 pb-4">
+              <div class="flex gap-3 overflow-x-auto scrollbar-hidden pb-2">
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logobalap.png" alt="Balapclass="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logococ.png" alt="Clash of Clans" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logodf.png" alt="Dragon Force" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logoepep.png" alt="epep" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logofornite.png" alt="Fortnite" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logomobile.png" alt="ML" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logopb.png" alt="pb" class="w-full h-full object-cover">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- JASA JOKI - Mobile -->
+          <div class="bg-gray-900 rounded-xl shadow-lg">
+            <div class="p-4 flex items-center justify-between">
+              <h3 class="text-white font-semibold text-lg">JASA JOKI</h3>
+              <a href="#" class="text-lime-400 text-sm font-medium">Lihat semua</a>
+            </div>
+            <div class="px-4 pb-4">
+              <div class="flex gap-3 overflow-x-auto scrollbar-hidden pb-2">
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logobalap.png" alt="Balapclass="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logococ.png" alt="Clash of Clans" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logodf.png" alt="Dragon Force" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logoepep.png" alt="epep" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logofornite.png" alt="Fortnite" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logomobile.png" alt="ML" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
+                  <img src="/assets/logogame/logopb.png" alt="pb" class="w-full h-full object-cover">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
 <div class="flex justify-center py-5 px-4">
   <div class="bg-[#D7FD52] md:p-12 space-y-7 py-4 rounded-2xl w-[466px] h-[259px] text-center">
@@ -484,23 +635,27 @@
   <button class="bg-[#242424] text-[#D7FD52] rounded-full px-8 py-3">Kami kasih saran</button>
   </div>
 </div>
-<div class="justify-end flex px-4">
-  <button class="bg-[#242424] px-6 font-bold lg:py-3 py-2 md:py-3 flex gap-3 items-center rounded-xl text-2xl">
-    <img src="./assets/other/logo-wa.png" alt=""><h2 class="md:text-2xl text-xl lg:text-2xl font-bold text-white">Topup<span class="text-lime-400">in</span></h2>
+<div class="fixed bottom-4 right-4 z-50 justify-end flex px-2">
+  <button class="bg-[#242424] px-6 py-3 flex gap-2 items-center rounded-lg text-base shadow-md">
+    <img src="./assets/other/logo-wa.png" alt="" class="w-5 h-5">
+    <h2 class="text-sm font-bold text-white">
+      Topup<span class="text-lime-400">in</span>
+    </h2>
   </button>
 </div>
 
-  <!-- Pop Up Iklan
+  <!-- Pop Up Iklan -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="relative max-w-md">
-      <img src="assets/promo.png" class="rounded" alt="Iklan">
+      <img src="/assets/promo/promo.png" class="rounded" alt="Iklan">
       <button onclick="document.getElementById('popup').style.display='none'" class="absolute top-1 right-1 bg-white text-black rounded-full px-2">✕</button>
     </div>
-  </div>-->
-
-  <!-- Footer - MOVED OUTSIDE the container div -->
+  </div>
+  
+</body>
+<!-- Footer - MOVED OUTSIDE the container div -->
     <footer class="bg-[#242424] mt-10 rounded-t-[15px] w-full">
-        <div class="container mx-auto px-4 py-2">
+        <div class="container mx-0 px-4 py-2">
             <div class="flex flex-col md:flex-row justify-between mb-6">
                 <!-- Left -->
                 <div class="mb-4 md:mb-0">
@@ -513,16 +668,16 @@
                     <div class="text-sm font-semibold mb-2 text-white font-sans">Metode Pembayaran</div>
                     <div class="flex flex-wrap justify-end gap-2">
                         <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
-                            <img src="assets/logopembayaran/qris.png" alt="QRIS" class="w-full h-full object-contain">
+                            <img src="../assets/logopembayaran/qris.png" alt="QRIS" class="w-full h-full object-contain">
                         </div>
                         <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
-                            <img src="assets/logopembayaran/blu.png" alt="BLU" class="w-full h-full object-contain">
+                            <img src="../assets/logopembayaran/blu.png" alt="BLU" class="w-full h-full object-contain">
                         </div>
                         <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
-                            <img src="assets/logopembayaran/dana.png" alt="DANA" class="w-full h-full object-contain">
+                            <img src="../assets/logopembayaran/dana.png" alt="DANA" class="w-full h-full object-contain">
                         </div>
                         <div class="bg-white rounded p-1 w-12 h-6 flex items-center justify-center">
-                            <img src="assets/logopembayaran/ovo.png" alt="OVO" class="w-full h-full object-contain">
+                            <img src="../assets/logopembayaran/ovo.png" alt="OVO" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
@@ -538,5 +693,5 @@
             </div>
         </div>
     </footer>
-</body>
 </html>
+ 
