@@ -73,5 +73,75 @@ class TopupItemSeeder extends Seeder
                 ]);
             }
         }
+
+         $genshinGame = Game::where('slug', 'genshin-impact')->first();
+        if ($genshinGame) {
+            $items = [
+                ['name' => '80 Genesis Crystals', 'price' => 15000, 'image' => 'primogem.webp'],
+                ['name' => '500 Genesis Crystals', 'price' => 79000, 'image' => 'primogem.webp'],
+                ['name' => '1200 Genesis Crystals', 'price' => 159000, 'image' => 'primogem.webp'],
+            ];
+            foreach ($items as $item) {
+                TopupItem::create([
+                    'game_id' => $genshinGame->id,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'image' => $item['image'],
+                ]);
+            }
+        }
+
+        $freefireGame = Game::where('slug', 'free-fire')->first();
+        if ($freefireGame) {
+            $items = [
+                ['name' => '80 Diamonds', 'price' => 15000, 'image' => 'diamondff.jpg'],
+                ['name' => '500 Diamonds', 'price' => 79000, 'image' => 'diamondff.jpg'],
+                ['name' => '1200 Diamonds', 'price' => 159000, 'image' => 'diamondff.jpg'],
+            ];
+            foreach ($items as $item) {
+                TopupItem::create([
+                    'game_id' => $freefireGame->id,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'image' => $item['image'],
+                ]);
+            }
+        }
+
+        $robloxGame = Game::where('slug', 'roblox')->first();
+        if ($robloxGame) {
+            $items = [
+                ['name' => '500 Robux', 'price' => 15000, 'image' => 'robux.png'],
+                ['name' => '1000 Robux', 'price' => 79000, 'image' => 'robux.png'],
+                ['name' => '2000 Robux', 'price' => 159000, 'image' => 'robux.png'],
+            ];
+            foreach ($items as $item) {
+                TopupItem::create([
+                    'game_id' => $robloxGame->id,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'image' => $item['image'],
+                ]);
+            }
+        }
+
+        $pubgGame = Game::where('slug', 'pubg')->first();
+        if ($pubgGame) {
+            $items = [
+                ['name' => '80 UC', 'price' => 15000, 'image' => 'ucpubg.jpg'],
+                ['name' => '500 UC', 'price' => 79000, 'image' => 'ucpubg.jpg'],
+                ['name' => '1200 UC', 'price' => 159000, 'image' => 'ucpubg.jpg'],
+            ];
+            foreach ($items as $item) {
+                TopupItem::create([
+                    'game_id' => $pubgGame->id,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'image' => $item['image'],
+                ]);
+            }
+        }
+
+
     }
 }
