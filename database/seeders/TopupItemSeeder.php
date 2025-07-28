@@ -27,6 +27,8 @@ class TopupItemSeeder extends Seeder
                 ['name' => '503 VP', 'price' => 70000, 'image' => 'valorant.jpg'],
                 ['name' => '1010 VP', 'price' => 140000, 'image' => 'valorant.jpg'],
                 ['name' => '2020 VP', 'price' => 280000, 'image' => 'valorant.jpg'],
+                ['name' => '4520 VP', 'price' => 600000, 'image' => 'valorant.jpg'],
+
             ];
             foreach ($items as $item) {
                 TopupItem::create([
@@ -42,9 +44,13 @@ class TopupItemSeeder extends Seeder
         $mlGame = Game::where('slug', 'mobile-legends')->first();
         if ($mlGame) {
             $items = [
-                ['name' => '86 Diamonds', 'price' => 25000, 'image' => 'diamondml.jpg'],
-                ['name' => '172 Diamonds', 'price' => 50000, 'image' => 'diamondml.jpg'],
-                ['name' => '257 Diamonds', 'price' => 75000, 'image' => 'diamondml.jpg'],
+                ['name' => '86 Diamonds', 'price' => 15000, 'image' => 'diamondml.jpg'],
+                ['name' => '172 Diamonds', 'price' => 25000, 'image' => 'diamondml.jpg'],
+                ['name' => '347 Diamonds', 'price' => 75000, 'image' => 'diamondml.jpg'],
+                ['name' => '607 Diamonds', 'price' => 140000, 'image' => 'diamondml.jpg'],
+                ['name' => '1507 Diamonds', 'price' => 300000, 'image' => 'diamondml.jpg'],
+                ['name' => '3257 Diamonds', 'price' => 750000, 'image' => 'diamondml.jpg'],
+                ['name' => '5157 Diamonds', 'price' => 1500000, 'image' => 'diamondml.jpg'],
             ];
             foreach ($items as $item) {
                 TopupItem::create([
@@ -62,7 +68,11 @@ class TopupItemSeeder extends Seeder
             $items = [
                 ['name' => '80 Gems', 'price' => 15000, 'image' => 'diamondcoc.png'],
                 ['name' => '500 Gems', 'price' => 79000, 'image' => 'diamondcoc.png'],
+                ['name' => '1000 Gems', 'price' => 55000, 'image' => 'diamondcoc.png'],
                 ['name' => '1200 Gems', 'price' => 159000, 'image' => 'diamondcoc.png'],
+                ['name' => '3000 Gems', 'price' => 300000, 'image' => 'diamondcoc.png'],
+                ['name' => '5000 Gems', 'price' => 600000, 'image' => 'diamondcoc.png'],
+                ['name' => '10000 Gems', 'price' => 1000000, 'image' => 'diamondcoc.png'],
             ];
             foreach ($items as $item) {
                 TopupItem::create([
@@ -77,9 +87,12 @@ class TopupItemSeeder extends Seeder
          $genshinGame = Game::where('slug', 'genshin-impact')->first();
         if ($genshinGame) {
             $items = [
-                ['name' => '80 Genesis Crystals', 'price' => 15000, 'image' => 'primogem.webp'],
-                ['name' => '500 Genesis Crystals', 'price' => 79000, 'image' => 'primogem.webp'],
-                ['name' => '1200 Genesis Crystals', 'price' => 159000, 'image' => 'primogem.webp'],
+                ['name' => '60 Genesis Crystals', 'price' => 14865, 'image' => 'primogem.webp'],
+                ['name' => '330 Genesis Crystals', 'price' => 72973, 'image' => 'primogem.webp'],
+                ['name' => '1090 Genesis Crystals', 'price' => 229730, 'image' => 'primogem.webp'],
+                ['name' => '2240 Genesis Crystals', 'price' => 440541, 'image' => 'primogem.webp'],
+                ['name' => '3880 Genesis Crystals', 'price' => 734234, 'image' => 'primogem.webp'],
+                ['name' => '8080 Genesis Crystals', 'price' => 1467568, 'image' => 'primogem.webp'],
             ];
             foreach ($items as $item) {
                 TopupItem::create([
@@ -97,6 +110,10 @@ class TopupItemSeeder extends Seeder
                 ['name' => '80 Diamonds', 'price' => 15000, 'image' => 'diamondff.jpg'],
                 ['name' => '500 Diamonds', 'price' => 79000, 'image' => 'diamondff.jpg'],
                 ['name' => '1200 Diamonds', 'price' => 159000, 'image' => 'diamondff.jpg'],
+                ['name' => '7240 Diamonds', 'price' => 918379, 'image' => 'diamondff.jpg'],
+                ['name' => '8020 Diamonds', 'price' => 1002817, 'image' => 'diamondff.jpg'],
+                ['name' => '14500 Diamonds', 'price' => 1823295, 'image' => 'diamondff.jpg'],
+                ['name' => '36500 Diamonds', 'price' => 4558230, 'image' => 'diamondff.jpg'],
             ];
             foreach ($items as $item) {
                 TopupItem::create([
@@ -111,9 +128,12 @@ class TopupItemSeeder extends Seeder
         $robloxGame = Game::where('slug', 'roblox')->first();
         if ($robloxGame) {
             $items = [
-                ['name' => '500 Robux', 'price' => 15000, 'image' => 'robux.png'],
-                ['name' => '1000 Robux', 'price' => 79000, 'image' => 'robux.png'],
-                ['name' => '2000 Robux', 'price' => 159000, 'image' => 'robux.png'],
+                ['name' => '500 Robux', 'price' => 90000, 'image' => 'robux.png'],
+                ['name' => '1000 Robux', 'price' => 180000, 'image' => 'robux.png'],
+                ['name' => '2000 Robux', 'price' => 360000, 'image' => 'robux.png'],
+                ['name' => '5250 Robux', 'price' => 900000, 'image' => 'robux.png'],
+                ['name' => '11000 Robux', 'price' => 1799000, 'image' => 'robux.png'],
+                ['name' => '24000 Robux', 'price' => 3599000, 'image' => 'robux.png'],
             ];
             foreach ($items as $item) {
                 TopupItem::create([
@@ -128,9 +148,13 @@ class TopupItemSeeder extends Seeder
         $pubgGame = Game::where('slug', 'pubg')->first();
         if ($pubgGame) {
             $items = [
-                ['name' => '80 UC', 'price' => 15000, 'image' => 'ucpubg.jpg'],
-                ['name' => '500 UC', 'price' => 79000, 'image' => 'ucpubg.jpg'],
-                ['name' => '1200 UC', 'price' => 159000, 'image' => 'ucpubg.jpg'],
+                ['name' => '60 UC', 'price' => 15000, 'image' => 'ucpubg.jpg'],
+                ['name' => '120 UC', 'price' => 28640, 'image' => 'ucpubg.jpg'],
+                ['name' => '180 UC', 'price' => 42960, 'image' => 'ucpubg.jpg'],
+                ['name' => '240 UC', 'price' => 57280, 'image' => 'ucpubg.jpg'],
+                ['name' => '325 UC', 'price' => 72278, 'image' => 'ucpubg.jpg'],
+                ['name' => '505 UC', 'price' => 115238, 'image' => 'ucpubg.jpg'],
+                ['name' => '1000 UC', 'price' => 259114, 'image' => 'ucpubg.jpg'],
             ];
             foreach ($items as $item) {
                 TopupItem::create([
