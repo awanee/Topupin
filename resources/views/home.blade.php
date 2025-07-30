@@ -67,21 +67,19 @@
             <!-- Baris pertama: 4 kartu -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Team Member 1 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/faris.jpeg') }}" alt="Faris Andi Muhammad" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Faris Andi Muhammad</h3>
                         <p class="text-gray-400 text-sm">Full-Stack Developer</p>
                     </div>
                 </div>
-                 <!-- Team Member 2 -->
-                 <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <!-- Team Member 2 -->
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/awan.jpeg') }}" alt="Anugrah Awan Cahya P" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Anugrah Awan Cahya P</h3>
@@ -89,10 +87,9 @@
                     </div>
                 </div>
                 <!-- Team Member 3 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/lauza.jpg') }}" alt="Nafal Lauza Hafidz A" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Nafal Lauza Hafidz A</h3>
@@ -100,10 +97,9 @@
                     </div>
                 </div>
                 <!-- Team Member 4 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/lina.JPG') }}" alt="Lina Rahmati" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Lina Rahmati</h3>
@@ -114,10 +110,9 @@
             <!-- Baris kedua: 2 kartu -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <!-- Team Member 5 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/hafidz.jpeg') }}" alt="Hafidz Ar Rofi" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Hafidz Ar Rofi</h3>
@@ -125,10 +120,9 @@
                     </div>
                 </div>
                 <!-- Team Member 6 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/nopal.jpg') }}" alt="Ekananda Naufal Arif W" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Ekananda Naufal Arif W</h3>
@@ -193,7 +187,8 @@
             <div class="py-8 px-6">
                 <div class="flex justify-between items-center py-8">
                     <h2 class="text-xl font-bold">GAME POPULER</h2>
-                    <a href="#" class="text-lime-400 font-bold">Lihat semua</a>
+                    {{-- PERUBAHAN: Mengubah link menjadi tombol dengan ID --}}
+                    <button id="lihat-semua-btn" class="text-lime-400 font-bold">Lihat semua</button>
                 </div>
                 <div id="game-grid" class="md:px-16 lg:px-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
                     @if(isset($games) && $games->count() > 0)
@@ -290,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Logika Filter Genre Game ---
     const genreFilterContainer = document.getElementById('genre-filters');
     const gameCards = document.querySelectorAll('.game-card-filterable');
+    const lihatSemuaBtn = document.getElementById('lihat-semua-btn');
 
     function applyGenreButtonStyles() {
         if (!genreFilterContainer) return;
@@ -332,6 +328,17 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         applyGenreButtonStyles();
+    }
+
+    // PENAMBAHAN: Logika untuk tombol "Lihat semua"
+    if (lihatSemuaBtn) {
+        lihatSemuaBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            const tombolSemuaGenre = genreFilterContainer.querySelector('button[data-genre="semua"]');
+            if (tombolSemuaGenre) {
+                tombolSemuaGenre.click();
+            }
+        });
     }
 
     // --- Logika Popup Promo ---
