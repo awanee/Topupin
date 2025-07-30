@@ -2,114 +2,93 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Models\TopupItem;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use Illuminate\View\View;
 
 class TopupItemController extends Controller
 {
     /**
-     * Menampilkan daftar semua item top-up.
+     * Menampilkan halaman pemilihan game.
      */
-    public function index()
-    {
-        $topupItems = TopupItem::with('game')->get();
-        return view('admin.topup-items.index', compact('topupItems'));
-    }
-
-    /**
-     * Menampilkan form untuk membuat item baru.
-     */
-    public function create()
+    public function index(): View
     {
         $games = Game::all();
-        return view('admin.topup-items.create', compact('games'));
+        return view('admin.topup-items.index', compact('games'));
     }
 
     /**
-     * Menyimpan item baru ke database.
+     * Menampilkan item top-up untuk game yang dipilih.
      */
-    public function store(Request $request)
+    public function show(Game $game): View
     {
-        // DIUBAH: Aturan validasi untuk 'image' dibuat lebih spesifik
+        // Memuat item top-up yang terkait dengan game ini
+        $topupItems = $game->topupItems()->get();
+
+        return view('admin.topup-items.show', compact('game', 'topupItems'));
+    }
+
+    /**
+     * Menampilkan form untuk membuat item baru untuk game yang dipilih.
+     */
+    public function create(Game $game): View
+    {
+        return view('admin.topup-items.create', compact('game'));
+    }
+
+    /**
+     * Menyimpan item baru yang terkait dengan game yang dipilih.
+     */
+    public function store(Request $request, Game $game)
+    {
         $request->validate([
-            'game_id' => 'required|exists:games,id',
             'name' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
-            // Aturan ini berarti 'image' boleh kosong (nullable),
-            // tapi JIKA ADA, ia harus berupa gambar dengan format yang diizinkan.
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,webp',
         ]);
 
-        $data = $request->all();
+        // Membuat item baru dan secara otomatis mengaitkannya dengan game_id
+        $game->topupItems()->create($request->all());
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $filename = 'item_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('assets/diamondgame'), $filename);
-            $data['image'] = $filename;
-        }
-
-        TopupItem::create($data);
-
-        return redirect()->route('admin.topup-items.index')
+        return redirect()->route('admin.topup-items.show', $game->id)
                          ->with('success', 'Item top up berhasil ditambahkan.');
     }
 
     /**
-     * Menampilkan form untuk mengedit item.
+     * Menampilkan form untuk mengedit item yang dipilih.
      */
-    public function edit(TopupItem $topupItem)
+    public function edit(TopupItem $topupItem): View
     {
-        $games = Game::all();
-        return view('admin.topup-items.edit', compact('topupItem', 'games'));
+        return view('admin.topup-items.edit', compact('topupItem'));
     }
 
     /**
-     * Memperbarui data item di database.
+     * Memperbarui item yang dipilih di database.
      */
     public function update(Request $request, TopupItem $topupItem)
     {
-        // DIUBAH: Aturan validasi untuk 'image' disesuaikan
         $request->validate([
-            'game_id' => 'required|exists:games,id',
             'name' => 'required|string|max:255',
             'price' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,webp',
         ]);
 
-        $data = $request->all();
+        $topupItem->update($request->all());
 
-        if ($request->hasFile('image')) {
-            if ($topupItem->image && File::exists(public_path('assets/diamondgame/' . $topupItem->image))) {
-                File::delete(public_path('assets/diamondgame/' . $topupItem->image));
-            }
-
-            $file = $request->file('image');
-            $filename = 'item_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('assets/diamondgame'), $filename);
-            $data['image'] = $filename;
-        }
-
-        $topupItem->update($data);
-
-        return redirect()->route('admin.topup-items.index')
+        // Redirect kembali ke halaman detail game setelah update
+        return redirect()->route('admin.topup-items.show', $topupItem->game_id)
                          ->with('success', 'Item top up berhasil diperbarui.');
     }
 
     /**
-     * Menghapus item dari database.
+     * Menghapus item yang dipilih dari database.
      */
     public function destroy(TopupItem $topupItem)
     {
-        if ($topupItem->image && File::exists(public_path('assets/diamondgame/' . $topupItem->image))) {
-            File::delete(public_path('assets/diamondgame/' . $topupItem->image));
-        }
-
+        $game_id = $topupItem->game_id; // Simpan game_id sebelum dihapus
         $topupItem->delete();
 
-        return redirect()->route('admin.topup-items.index')
+        return redirect()->route('admin.topup-items.show', $game_id)
                          ->with('success', 'Item top up berhasil dihapus.');
     }
 }

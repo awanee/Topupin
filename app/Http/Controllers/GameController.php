@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\File; // DIUBAH: Menggunakan File facade untuk hapus manual
 
 class GameController extends Controller
 {
@@ -31,33 +31,32 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:games',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp,JPG|max:2048',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,webp,JPG|max:2048',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'needs_server_id' => 'required|boolean',
         ]);
 
-        $game = new Game();
-        $game->name = $request->name;
+        $game = new Game($validatedData);
         $game->slug = $request->slug ? Str::slug($request->slug, '-') : Str::slug($request->name, '-');
 
+        // DIUBAH: Menggunakan metode move() ke folder public/assets/logogame
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
-            $filename = 'thumbnail_'.time().'.'.$file->getClientOriginalExtension();
+            $filename = 'thumbnail_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('assets/logogame'), $filename);
-            $game->thumbnail = $filename;
+            $game->thumbnail = $filename; // Hanya simpan nama file
         }
 
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
-            $filename = 'logo_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('assets/diamondgame'), $filename);
-            $game->logo = $filename;
+            $filename = 'logo_' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('assets/logogame'), $filename);
+            $game->logo = $filename; // Hanya simpan nama file
         }
 
-        $game->needs_server_id = $request->needs_server_id;
         $game->save();
 
         return redirect()->route('admin.games.index')->with('success', 'Game berhasil ditambahkan.');
@@ -76,24 +75,26 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:games,slug,' . $game->id,
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,JPG|max:2048',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,JPG|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'needs_server_id' => 'required|boolean',
         ]);
 
-        $game->name = $request->name;
+        $game->fill($validatedData);
         $game->slug = $request->slug ? Str::slug($request->slug, '-') : Str::slug($request->name, '-');
 
+        // DIUBAH: Logika update file di folder public
         if ($request->hasFile('thumbnail')) {
-            if ($game->thumbnail && File::exists(public_path('assets/imgPopuler/' . $game->thumbnail))) {
-                File::delete(public_path('assets/imgPopuler/' . $game->thumbnail));
+            // Hapus file lama jika ada
+            if ($game->thumbnail && File::exists(public_path('assets/logogame/' . $game->thumbnail))) {
+                File::delete(public_path('assets/logogame/' . $game->thumbnail));
             }
             $file = $request->file('thumbnail');
-            $filename = 'thumbnail_'.time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('assets/imgPopuler'), $filename);
+            $filename = 'thumbnail_' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('assets/logogame'), $filename);
             $game->thumbnail = $filename;
         }
 
@@ -102,12 +103,11 @@ class GameController extends Controller
                 File::delete(public_path('assets/logogame/' . $game->logo));
             }
             $file = $request->file('logo');
-            $filename = 'logo_'.time().'.'.$file->getClientOriginalExtension();
+            $filename = 'logo_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('assets/logogame'), $filename);
             $game->logo = $filename;
         }
 
-        $game->needs_server_id = $request->needs_server_id;
         $game->save();
 
         return redirect()->route('admin.games.index')->with('success', 'Game berhasil diperbarui.');
@@ -118,9 +118,9 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        // DIUBAH: Memperbaiki path untuk menghapus file thumbnail dan logo
-        if ($game->thumbnail && File::exists(public_path('assets/imgPopuler/' . $game->thumbnail))) {
-            File::delete(public_path('assets/imgPopuler/' . $game->thumbnail));
+        // DIUBAH: Logika hapus file dari folder public
+        if ($game->thumbnail && File::exists(public_path('assets/logogame/' . $game->thumbnail))) {
+            File::delete(public_path('assets/logogame/' . $game->thumbnail));
         }
         if ($game->logo && File::exists(public_path('assets/logogame/' . $game->logo))) {
             File::delete(public_path('assets/logogame/' . $game->logo));

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// PERBAIKAN: Pastikan semua controller di-import dengan benar
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
@@ -8,10 +9,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PayoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TopupItemController;
-use App\Http\Controllers\UserTransactionController; //
+use App\Http\Controllers\UserTransactionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Api\SearchController; //
+use App\Http\Controllers\Api\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +47,19 @@ Route::middleware('auth')->group(function () {
 // --- Rute Khusus Admin ---
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Route untuk Games dan Accounts tetap bisa menggunakan resource
     Route::resource('games', GameController::class);
-    Route::resource('topup-items', TopupItemController::class);
     Route::resource('accounts', AccountController::class);
+
+    // PERBAIKAN: Mendefinisikan route untuk Topup Items secara manual
+    Route::get('topup-items', [TopupItemController::class, 'index'])->name('topup-items.index');
+    Route::get('topup-items/game/{game}', [TopupItemController::class, 'show'])->name('topup-items.show');
+    Route::get('topup-items/game/{game}/create', [TopupItemController::class, 'create'])->name('topup-items.create');
+    Route::post('topup-items/game/{game}', [TopupItemController::class, 'store'])->name('topup-items.store');
+    Route::get('topup-items/{topupItem}/edit', [TopupItemController::class, 'edit'])->name('topup-items.edit');
+    Route::put('topup-items/{topupItem}', [TopupItemController::class, 'update'])->name('topup-items.update');
+    Route::delete('topup-items/{topupItem}', [TopupItemController::class, 'destroy'])->name('topup-items.destroy');
+
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
 });
