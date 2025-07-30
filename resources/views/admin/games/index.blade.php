@@ -72,7 +72,7 @@
                         </td>
                         <td class="p-3">
                              @if($game->logo)
-                                <img src="{{ asset('assets/diamondgame/' . $game->logo) }}" alt="Logo {{ $game->name }}" class="w-12 h-12 rounded object-cover">
+                                <img src="{{ asset('assets/logogame/' . $game->logo) }}" alt="Logo {{ $game->name }}" class="w-12 h-12 rounded object-cover">
                             @else
                                 <span class="text-xs text-gray-500">N/A</span>
                             @endif

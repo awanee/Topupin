@@ -69,7 +69,12 @@
                                     <img src="{{ asset('assets/logopembayaran/qris.png') }}" alt="QRIS" class="h-8">
                                 </div>
                             </label>
-                            {{-- Tambahkan metode pembayaran lain dengan pola yang sama --}}
+                            <label class="relative">
+                                <input type="radio" name="payment_method" value="DANA" class="hidden peer">
+                                <div class="payment-method bg-white rounded-lg p-2 flex items-center justify-center cursor-pointer border-2 border-transparent peer-checked:ring-2 peer-checked:ring-[#D7FD52]">
+                                    <img src="{{ asset('assets/logopembayaran/dana.png') }}" alt="DANA" class="h-8">
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>

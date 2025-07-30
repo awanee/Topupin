@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         // Panggil seeder yang sudah kita buat
         $this->call([
             UserSeeder::class,
+            CategorySeeder::class,
             GameSeeder::class,
             TopupItemSeeder::class,
             TransactionSeeder::class, // <-- TAMBAHKAN INI

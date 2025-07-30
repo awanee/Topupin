@@ -39,6 +39,27 @@ class TopupItemSeeder extends Seeder
                 ]);
             }
         }
+        // --- Data untuk CS:GO ---
+         $csgoGame = Game::where('slug', 'csgo')->first();
+        if ($csgoGame) {
+            $items = [
+                ['name' => '1000 Steam Wallet', 'price' => 15000, 'image' => 'steamwallet.webp'],
+                ['name' => '2500 Steam Wallet', 'price' => 35000, 'image' => 'steamwallet.webp'],
+                ['name' => '5000 Steam Wallet', 'price' => 70000, 'image' => 'steamwallet.webp'],
+                ['name' => '10000 Steam Wallet', 'price' => 140000, 'image' => 'steamwallet.webp'],
+                ['name' => '20000 Steam Wallet', 'price' => 280000, 'image' => 'steamwallet.webp'],
+                ['name' => '50000 Steam Wallet', 'price' => 600000, 'image' => 'steamwallet.webp'],
+                ['name' => '100000 Steam Wallet', 'price' => 1200000, 'image' => 'steamwallet.webp'],
+            ];
+            foreach ($items as $item) {
+                TopupItem::create([
+                    'game_id' => $csgoGame->id,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'image' => $item['image'],
+                ]);
+            }
+        }
 
         // --- Data untuk Mobile Legends ---
         $mlGame = Game::where('slug', 'mobile-legends')->first();

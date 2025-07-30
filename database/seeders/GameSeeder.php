@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Game;
+use App\Models\Category;
 
 class GameSeeder extends Seeder
 {
@@ -13,63 +13,108 @@ class GameSeeder extends Seeder
      */
     public function run(): void
     {
-        // Data ini akan digunakan untuk menampilkan LOGO di halaman Payout
-        // Pastikan semua file ini ada di dalam folder `public/assets/logogame/`
+        // Ambil data kategori yang sudah ada
+        $fps = Category::where('slug', 'fps')->first();
+        $moba = Category::where('slug', 'moba')->first();
+        $battleRoyale = Category::where('slug', 'battle-royale')->first();
+        $strategy = Category::where('slug', 'strategy')->first();
 
-        Game::create([
-            'name' => 'Valorant',
-            'slug' => 'valorant',
-            'thumbnail' => 'logovalo.png', // Menggunakan logo kecil
-            'logo' => 'valorant.jpg',
-            'needs_server_id' => false,
-        ]);
+        // Buat Game dan langsung hubungkan ke Kategori
 
-        Game::create([
-            'name' => 'Clash of Clans',
-            'slug' => 'clash-of-clans',
-            'thumbnail' => 'logococ.png', // Menggunakan logo kecil
-            'logo' => 'clashofclans.jpg',
-            'needs_server_id' => false,
-        ]);
+        if ($fps) {
+            $valorant = Game::firstOrCreate([
+                'slug' => 'valorant'
+            ], [
+                'name' => 'Valorant',
+                'thumbnail' => 'logovalo.png',
+                'logo' => 'valorant.jpg',
+                'needs_server_id' => false,
+            ]);
+            $valorant->categories()->syncWithoutDetaching([$fps->id]);
+        }
 
-        Game::create([
-            'name' => 'Mobile Legends',
-            'slug' => 'mobile-legends',
-            'thumbnail' => 'logomobile.png', // Menggunakan logo kecil
-            'logo' => 'mobilelegends.jpg',
-            'needs_server_id' => true,
-        ]);
+         if ($fps) {
+            $valorant = Game::firstOrCreate([
+                'slug' => 'Csgo'
+            ], [
+                'name' => 'CS:GO',
+                'thumbnail' => 'csgoimage.jpg',
+                'logo' => 'logocsgo.png',
+                'needs_server_id' => true,
+            ]);
+            $valorant->categories()->syncWithoutDetaching([$fps->id]);
+        }
 
-        Game::create([
-            'name' => 'Genshin Impact',
-            'slug' => 'genshin-impact',
-            'thumbnail' => 'genshinimpact.jpg', // Disesuaikan dengan file Anda
-            'logo' => 'genshintopup.jpeg',
-            'needs_server_id' => true,
-        ]);
+        if ($strategy) {
+            $coc = Game::firstOrCreate([
+                'slug' => 'clash-of-clans'
+            ], [
+                'name' => 'Clash of Clans',
+                'thumbnail' => 'logococ.png',
+                'logo' => 'clashofclans.jpg',
+                'needs_server_id' => false,
+            ]);
+            $coc->categories()->syncWithoutDetaching([$strategy->id]);
+        }
 
-        Game::create([
-            'name' => 'Free Fire',
-            'slug' => 'free-fire',
-            'thumbnail' => 'freefire.jpg', // Disesuaikan dengan file Anda
-            'logo' => 'logoepep.png',
-            'needs_server_id' => false,
-        ]);
+        if ($moba) {
+            $ml = Game::firstOrCreate([
+                'slug' => 'mobile-legends'
+            ], [
+                'name' => 'Mobile Legends',
+                'thumbnail' => 'mobilelegends.jpg',
+                'logo' => 'logomobile.png',
+                'needs_server_id' => true,
+            ]);
+            $ml->categories()->syncWithoutDetaching([$moba->id]);
+        }
 
-        Game::create([
-            'name' => 'Roblox',
-            'slug' => 'roblox',
-            'thumbnail' => 'roblox.jpg', // Disesuaikan dengan file Anda
-            'logo' => 'logoroblox.png',
-            'needs_server_id' => false,
-        ]);
+        if ($moba) {
+            $genshin = Game::firstOrCreate([
+                'slug' => 'genshin-impact'
+            ], [
+                'name' => 'Genshin Impact',
+                'thumbnail' => 'genshinimpact.jpg',
+                'logo' => 'genshintopup.jpeg',
+                'needs_server_id' => true,
+            ]);
+            $genshin->categories()->syncWithoutDetaching([$moba->id]);
+        }
 
-        Game::create([
-            'name' => 'PUBG Mobile',
-            'slug' => 'pubg',
-            'thumbnail' => 'logopubg.png', // Ini bisa jadi berbeda folder
-            'logo' => 'pubgmobile.jpg',
-            'needs_server_id' => true,
-        ]);
+        if ($battleRoyale) {
+            $ff = Game::firstOrCreate([
+                'slug' => 'free-fire'
+            ], [
+                'name' => 'Free Fire',
+                'thumbnail' => 'freefire.jpg',
+                'logo' => 'logoepep.png',
+                'needs_server_id' => false,
+            ]);
+            $ff->categories()->syncWithoutDetaching([$battleRoyale->id]);
+        }
+
+        if ($strategy) {
+            $roblox = Game::firstOrCreate([
+                'slug' => 'roblox'
+            ], [
+                'name' => 'Roblox',
+                'thumbnail' => 'roblox.jpg',
+                'logo' => 'logoroblox.png',
+                'needs_server_id' => false,
+            ]);
+            $roblox->categories()->syncWithoutDetaching([$strategy->id]);
+        }
+
+        if ($battleRoyale) {
+            $pubg = Game::firstOrCreate([
+                'slug' => 'pubg'
+            ], [
+                'name' => 'PUBG Mobile',
+                'thumbnail' => 'logopubg.png',
+                'logo' => 'pubgmobile.jpg',
+                'needs_server_id' => true,
+            ]);
+            $pubg->categories()->syncWithoutDetaching([$battleRoyale->id]);
+        }
     }
 }

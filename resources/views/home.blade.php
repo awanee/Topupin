@@ -11,6 +11,14 @@
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(215, 253, 82, 0.15);
     }
+    /* Style untuk transisi filter game */
+    .game-card-filterable {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    /* Menggunakan class untuk menyembunyikan kartu, bukan inline style */
+    .game-card-hidden {
+        display: none;
+    }
 </style>
 @endpush
 
@@ -33,13 +41,12 @@
     </div>
 </div>
 
-<!-- Kategori -->
+<!-- Kategori Utama (SEMUA / TIM) -->
 <div class="container mx-auto px-4 py-6">
     <div class="px-4 sm:px-6 mt-1">
         <div class="flex justify-start gap-1 sm:gap-2">
-            <a href="#" data-category="semua" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-lime-400 text-black px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate">SEMUA</a>
-            <a href="#" data-category="topup" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition">TOP UP</a>
-            <a href="#" data-category="tim" class="kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition">TIM</a>
+            <a href="#" data-main-category="semua" class="main-kategori-btn flex-1 sm:flex-none sm:w-28 bg-lime-400 text-black px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate">SEMUA</a>
+            <a href="#" data-main-category="tim" class="main-kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition">TIM</a>
         </div>
     </div>
 </div>
@@ -48,7 +55,7 @@
 <div id="filtered-content">
 
     <!-- Meet Our Team Section (Awalnya tersembunyi) -->
-    <div id="team-section" class="kategori-content container mx-auto px-4 py-12 hidden" data-kategori="tim">
+    <div id="team-section" class="main-kategori-content container mx-auto px-4 py-12 hidden" data-main-kategori="tim">
         <div class="text-center mb-16">
             <h1 class="text-5xl font-bold text-white mb-4">Meet our <span class="text-[#D7FD52]">Team</span></h1>
             <p class="text-gray-400">Tim kreatif di balik Topupin</p>
@@ -58,21 +65,19 @@
             <!-- Baris pertama: 4 kartu -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Team Member 1 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/faris.jpeg') }}" alt="Faris Andi Muhammad" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Faris Andi Muhammad</h3>
                         <p class="text-gray-400 text-sm">Full-Stack Developer</p>
                     </div>
                 </div>
-                 <!-- Team Member 2 -->
-                 <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <!-- Team Member 2 -->
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/awan.jpeg') }}" alt="Anugrah Awan Cahya P" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Anugrah Awan Cahya P</h3>
@@ -80,10 +85,9 @@
                     </div>
                 </div>
                 <!-- Team Member 3 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/lauza.jpg') }}" alt="Nafal Lauza Hafidz A" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Nafal Lauza Hafidz A</h3>
@@ -91,10 +95,9 @@
                     </div>
                 </div>
                 <!-- Team Member 4 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/lina.JPG') }}" alt="Lina Rahmati" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Lina Rahmati</h3>
@@ -105,10 +108,9 @@
             <!-- Baris kedua: 2 kartu -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <!-- Team Member 5 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/hafidz.jpeg') }}" alt="Hafidz Ar Rofi" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Hafidz Ar Rofi</h3>
@@ -116,10 +118,9 @@
                     </div>
                 </div>
                 <!-- Team Member 6 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/nopal.jpg') }}" alt="Ekananda Naufal Arif W" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Ekananda Naufal Arif W</h3>
@@ -131,41 +132,50 @@
     </div>
 
     <!-- Game Section (Awalnya terlihat) -->
-    <div id="game-section" class="kategori-content" data-kategori="semua">
-        <!-- Flash Sale -->
-        <div class="kategori-content px-4 sm:px-6 mt-6" data-kategori="topup" style="display: none;">
-             {{-- Konten Flash Sale Anda --}}
-        </div>
-        <!-- Game Populer -->
-        <div class="py-8 px-6">
-            <div class="flex justify-between items-center py-8">
-                <h2 class="text-xl font-bold">GAME POPULER</h2>
-                <a href="#" class="text-lime-400 font-bold">Lihat semua</a>
+    <div id="game-section" class="main-kategori-content" data-main-kategori="semua">
+        <div class="container mx-auto px-4">
+            <!-- Filter Kategori Game (Genre) -->
+            <div id="genre-filters" class="flex flex-wrap items-center gap-2 sm:gap-3 mb-6 px-4 sm:px-6">
+                <button data-genre="semua" class="genre-btn active px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300">Semua</button>
+                <button data-genre="fps" class="genre-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300">FPS</button>
+                <button data-genre="moba" class="genre-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300">MOBA</button>
+                <button data-genre="battle-royale" class="genre-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300">Battle Royale</button>
+                <button data-genre="strategy" class="genre-btn px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300">Strategy</button>
             </div>
-            <div id="game-grid" class="md:px-16 lg:px-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
-                @if(isset($games) && $games->count() > 0)
-                    @foreach ($games as $game)
-                        <div class="game-card w-full flex flex-col">
-                            <a href="{{ route('payout.create', ['game' => $game->slug]) }}">
-                                <img src="{{ asset('assets/logogame/' . $game->thumbnail) }}" class="rounded-t-lg object-cover w-full aspect-video" alt="{{ $game->name }}">
-                            </a>
-                            <div class="bg-[#242424] rounded-b-lg px-4 py-2 flex-1 flex flex-col justify-between">
-                                <div><h1 class="text-sm font-semibold break-words h-[40px] overflow-hidden">{{ $game->name }}</h1><p class="text-sm min-h-[20px] mt-1"></p></div>
-                                <div class="pt-2">
-                                    <a href="{{ route('payout.create', ['game' => $game->slug]) }}" class="block text-center mt-auto w-full py-1 bg-lime-400 rounded-lg text-black font-semibold hover:bg-lime-300 transition-colors">Beli</a>
+
+            <!-- Game Populer -->
+            <div class="py-8 px-6">
+                <div class="flex justify-between items-center py-8">
+                    <h2 class="text-xl font-bold">GAME POPULER</h2>
+                    <a href="#" class="text-lime-400 font-bold">Lihat semua</a>
+                </div>
+                <div id="game-grid" class="md:px-16 lg:px-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+                    @if(isset($games) && $games->count() > 0)
+                        @foreach ($games as $game)
+                            <div class="game-card-filterable" data-genre="{{ $game->categories->first()->slug ?? 'lainnya' }}">
+                                <div class="w-full flex flex-col">
+                                    <a href="{{ route('payout.create', ['game' => $game->slug]) }}">
+                                        <img src="{{ asset('assets/logogame/' . $game->thumbnail) }}" class="rounded-t-lg object-cover w-full aspect-video" alt="{{ $game->name }}">
+                                    </a>
+                                    <div class="bg-[#242424] rounded-b-lg px-4 py-2 flex-1 flex flex-col justify-between">
+                                        <div><h1 class="text-sm font-semibold break-words h-[40px] overflow-hidden">{{ $game->name }}</h1><p class="text-sm min-h-[20px] mt-1"></p></div>
+                                        <div class="pt-2">
+                                            <a href="{{ route('payout.create', ['game' => $game->slug]) }}" class="block text-center mt-auto w-full py-1 bg-lime-400 rounded-lg text-black font-semibold hover:bg-lime-300 transition-colors">Beli</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                @else
-                    <p class="col-span-full text-center text-gray-400">Belum ada game yang tersedia.</p>
-                @endif
+                        @endforeach
+                    @else
+                        <p class="col-span-full text-center text-gray-400">Belum ada game yang tersedia.</p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-{{-- DITAMBAHKAN KEMBALI: Popup Notifikasi Promo --}}
+{{-- Popup Notifikasi Promo --}}
 <div id="promo-popup" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 transition-opacity duration-300">
     <div class="relative max-w-md mx-4">
         <img src="{{ asset('assets/promo/promo.png') }}" class="rounded-lg shadow-lg" alt="Iklan Promo">
@@ -178,51 +188,119 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // ... (Logika Carousel Anda di sini) ...
+    // --- Logika Carousel ---
+    let currentIndex = 0;
+    const carousel = document.getElementById('carousel');
+    if (carousel) {
+        const images = carousel.querySelectorAll('.carousel-image');
+        const indicators = carousel.querySelectorAll('.carousel-indicator');
+        const prevBtn = carousel.querySelector('#prev');
+        const nextBtn = carousel.querySelector('#next');
+        const totalImages = images.length;
 
-    const categoryButtons = document.querySelectorAll('.kategori-btn');
-    const teamSection = document.getElementById('team-section');
-    const gameSection = document.getElementById('game-section');
+        function showImage(index) {
+            images.forEach((img, i) => { img.style.opacity = i === index ? '1' : '0'; });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('bg-white', i === index);
+                indicator.classList.toggle('bg-gray-500', i !== index);
+            });
+            currentIndex = index;
+        }
 
-    categoryButtons.forEach(button => {
+        if (totalImages > 1) {
+            nextBtn.addEventListener('click', () => showImage((currentIndex + 1) % totalImages));
+            prevBtn.addEventListener('click', () => showImage((currentIndex - 1 + totalImages) % totalImages));
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', (e) => showImage(parseInt(e.target.dataset.index)));
+            });
+        }
+    }
+
+    // --- Logika Filter Utama (SEMUA / TIM) ---
+    const mainCategoryButtons = document.querySelectorAll('.main-kategori-btn');
+    const mainContentSections = document.querySelectorAll('.main-kategori-content');
+    mainCategoryButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            const category = button.dataset.category;
+            const category = button.dataset.mainCategory;
 
-            // Atur tombol aktif
-            categoryButtons.forEach(btn => {
+            mainCategoryButtons.forEach(btn => {
                 btn.classList.remove('bg-lime-400', 'text-black');
                 btn.classList.add('bg-zinc-800', 'text-white');
             });
             button.classList.add('bg-lime-400', 'text-black');
             button.classList.remove('bg-zinc-800', 'text-white');
 
-            // Logika untuk menampilkan/menyembunyikan seksi
-            if (category === 'tim') {
-                teamSection.classList.remove('hidden');
-                gameSection.classList.add('hidden');
-            } else {
-                teamSection.classList.add('hidden');
-                gameSection.classList.remove('hidden');
-            }
+            mainContentSections.forEach(section => {
+                if (section.dataset.mainKategori === category) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
         });
     });
 
-    document.querySelector('.kategori-btn[data-category="semua"]').click();
+    // --- Logika Filter Genre Game ---
+    const genreFilterContainer = document.getElementById('genre-filters');
+    const gameCards = document.querySelectorAll('.game-card-filterable');
 
-    // DITAMBAHKAN KEMBALI: Logika untuk menyembunyikan popup promo
-    const promoPopup = document.getElementById('promo-popup');
-    if(promoPopup) {
-        // Sembunyikan popup setelah 5 detik
-        setTimeout(() => {
-            promoPopup.style.opacity = '0';
-            // Tunggu transisi selesai sebelum menambahkan kelas hidden
-            setTimeout(() => {
-                promoPopup.style.display = 'none';
-            }, 300); // 300ms sesuai dengan durasi transisi
-        }, 5000);
+    // PERBAIKAN: Fungsi untuk menerapkan style tombol genre
+    function applyGenreButtonStyles() {
+        if (!genreFilterContainer) return;
+        const activeClasses = ['bg-[#D7FD52]', 'text-black'];
+        const inactiveClasses = ['bg-[#242424]', 'text-gray-300', 'hover:bg-gray-700'];
+
+        genreFilterContainer.querySelectorAll('.genre-btn').forEach(button => {
+            if (button.classList.contains('active')) {
+                button.classList.remove(...inactiveClasses);
+                button.classList.add(...activeClasses);
+            } else {
+                button.classList.remove(...activeClasses);
+                button.classList.add(...inactiveClasses);
+            }
+        });
     }
 
+    if (genreFilterContainer) {
+        genreFilterContainer.addEventListener('click', (event) => {
+            if (!event.target.classList.contains('genre-btn')) return;
+
+            const clickedButton = event.target;
+            const filterGenre = clickedButton.dataset.genre;
+
+            // PERBAIKAN: Logika untuk memindahkan kelas 'active'
+            const currentActiveButton = genreFilterContainer.querySelector('.genre-btn.active');
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('active');
+            }
+            clickedButton.classList.add('active');
+
+            // Terapkan style baru ke semua tombol
+            applyGenreButtonStyles();
+
+            // Terapkan filter ke kartu game
+            gameCards.forEach(card => {
+                const cardGenre = card.dataset.genre;
+                if (filterGenre === 'semua' || cardGenre === filterGenre) {
+                    card.classList.remove('game-card-hidden');
+                } else {
+                    card.classList.add('game-card-hidden');
+                }
+            });
+        });
+        // Panggil fungsi untuk mengatur style awal yang benar saat halaman dimuat
+        applyGenreButtonStyles();
+    }
+
+    // --- Logika Popup Promo ---
+    const promoPopup = document.getElementById('promo-popup');
+    if(promoPopup) {
+        setTimeout(() => {
+            promoPopup.style.opacity = '0';
+            setTimeout(() => { promoPopup.style.display = 'none'; }, 300);
+        }, 5000);
+    }
 });
 </script>
 @endsection

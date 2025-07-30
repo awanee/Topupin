@@ -4,25 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Game; // Pastikan Anda mengimpor model Game
 use Illuminate\Http\Request;
+use App\Models\Category; // Pastikan Anda mengimpor model Category
 
 class HomeController extends Controller
 {
-    /**
-     * Menampilkan halaman utama (homepage) dengan data yang diperlukan.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function index(Request $request)
     {
-        // 1. Mengambil semua data game dari database.
-        // Di masa depan, Anda bisa menambahkan logika sorting atau filter di sini.
-        // Contoh: Game::where('is_popular', true)->get();
-        $games = Game::all();
+        // Ambil semua kategori untuk ditampilkan sebagai tombol filter
+        $categories = Category::all();
 
-        // 2. Mengirim data games ke view 'home.blade.php'.
-        // Variabel $games sekarang akan tersedia di dalam file view tersebut.
-        return view('home', [
-            'games' => $games,
-        ]);
+        // Query dasar untuk game
+        $gamesQuery = Game::query();
+
+        // Cek jika ada request filter kategori
+        if ($request->has('category')) {
+            $categorySlug = $request->input('category');
+            // Filter game yang memiliki kategori dengan slug yang cocok
+            $gamesQuery->whereHas('categories', function ($query) use ($categorySlug) {
+                $query->where('slug', $categorySlug);
+            });
+        }
+
+        // Ambil hasil game setelah difilter (atau semua game jika tidak ada filter)
+        $games = $gamesQuery->get();
+
+        // Kirim data kategori dan game ke view
+        return view('home', compact('games', 'categories'));
     }
 }

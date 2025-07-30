@@ -2,7 +2,7 @@
 
 @extends('layouts.admin')
 
-@section('title', 'Tambah Item Baru')
+@section('title', 'Edit Item Topup')
 
 @section('content')
     {{-- DIUBAH: Menambahkan enctype="multipart/form-data" --}}
