@@ -28,7 +28,7 @@
                 <p class="text-sm text-gray-400">Admin Panel</p>
             </div>
             <nav class="space-y-3">
-                {{-- PERBAIKAN: Mengaktifkan kembali semua link navigasi --}}
+                {{-- Menu Dashboard --}}
                 <a href="{{ route('admin.dashboard') }}"
                    class="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors
                           {{ request()->routeIs('admin.dashboard') ? 'bg-[#242424] text-white' : 'text-gray-300 hover:bg-[#242424] hover:text-white' }}">
@@ -36,6 +36,7 @@
                     <span>Dashboard</span>
                 </a>
 
+                {{-- Menu Manage Games --}}
                 <a href="{{ route('admin.games.index') }}"
                    class="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors
                           {{ request()->routeIs('admin.games.*') ? 'bg-[#242424] text-white' : 'text-gray-300 hover:bg-[#242424] hover:text-white' }}">
@@ -43,11 +44,20 @@
                     <span>Manage Games</span>
                 </a>
 
+                {{-- Menu Topup Items --}}
                 <a href="{{ route('admin.topup-items.index') }}"
                    class="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors
                           {{ request()->routeIs('admin.topup-items.*') ? 'bg-[#242424] text-white' : 'text-gray-300 hover:bg-[#242424] hover:text-white' }}">
                     <i class="fas fa-gem fa-fw"></i>
                     <span>Topup Items</span>
+                </a>
+
+                {{-- PERBAIKAN: Menambahkan kembali link Transaksi --}}
+                <a href="{{ route('admin.transactions.index') }}"
+                   class="flex items-center gap-3 px-4 py-2 rounded-lg transition-colors
+                          {{ request()->routeIs('admin.transactions.*') ? 'bg-[#242424] text-white' : 'text-gray-300 hover:bg-[#242424] hover:text-white' }}">
+                    <i class="fas fa-history fa-fw"></i>
+                    <span>Transactions</span>
                 </a>
             </nav>
         </aside>
