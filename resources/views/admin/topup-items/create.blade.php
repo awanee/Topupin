@@ -11,8 +11,8 @@
             </a>
         </div>
 
-        {{-- PERBAIKAN: Menyertakan parameter '$game->id' pada route 'store' --}}
-        <form action="{{ route('admin.topup-items.store', $game->id) }}" method="POST" class="space-y-6">
+        {{-- PERBAIKAN: Menambahkan enctype="multipart/form-data" untuk upload file --}}
+        <form action="{{ route('admin.topup-items.store', $game->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
 
             {{-- Nama Game (Hanya untuk ditampilkan, tidak bisa diubah) --}}
@@ -34,6 +34,13 @@
                 <label for="price" class="block text-sm font-medium text-gray-300 mb-1">Harga</label>
                 <input type="number" name="price" id="price" value="{{ old('price') }}" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-lime-400" required>
                 @error('price')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
+            </div>
+
+            {{-- Input untuk upload gambar --}}
+            <div>
+                <label for="image" class="block text-sm font-medium text-gray-300 mb-1">Gambar Item (Opsional)</label>
+                <input type="file" name="image" id="image" class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-lime-400/10 file:text-lime-300 hover:file:bg-lime-400/20">
+                @error('image')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
             </div>
 
             {{-- Tombol Submit --}}

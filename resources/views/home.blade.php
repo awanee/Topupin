@@ -41,12 +41,14 @@
     </div>
 </div>
 
-<!-- Kategori Utama (SEMUA / TIM) -->
+<!-- Kategori Utama (SEMUA / TIM / VISI MISI) -->
 <div class="container mx-auto px-4 py-6">
     <div class="px-4 sm:px-6 mt-1">
         <div class="flex justify-start gap-1 sm:gap-2">
             <a href="#" data-main-category="semua" class="main-kategori-btn flex-1 sm:flex-none sm:w-28 bg-lime-400 text-black px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate">SEMUA</a>
             <a href="#" data-main-category="tim" class="main-kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition">TIM</a>
+            {{-- PENAMBAHAN: Tombol Visi & Misi --}}
+            <a href="#" data-main-category="visi-misi" class="main-kategori-btn flex-1 sm:flex-none sm:w-28 bg-zinc-800 text-white px-1 sm:px-4 py-2 rounded-md text-xs sm:text-sm text-center font-medium truncate transition">VISI & MISI</a>
         </div>
     </div>
 </div>
@@ -65,19 +67,21 @@
             <!-- Baris pertama: 4 kartu -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Team Member 1 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/faris.jpeg') }}" alt="Faris Andi Muhammad" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Faris Andi Muhammad</h3>
                         <p class="text-gray-400 text-sm">Full-Stack Developer</p>
                     </div>
                 </div>
-                <!-- Team Member 2 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
+                 <!-- Team Member 2 -->
+                 <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/awan.jpeg') }}" alt="Anugrah Awan Cahya P" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Anugrah Awan Cahya P</h3>
@@ -85,9 +89,10 @@
                     </div>
                 </div>
                 <!-- Team Member 3 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/lauza.jpg') }}" alt="Nafal Lauza Hafidz A" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Nafal Lauza Hafidz A</h3>
@@ -95,9 +100,10 @@
                     </div>
                 </div>
                 <!-- Team Member 4 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/lina.JPG') }}" alt="Lina Rahmati" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Lina Rahmati</h3>
@@ -108,9 +114,10 @@
             <!-- Baris kedua: 2 kartu -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <!-- Team Member 5 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/hafidz.jpeg') }}" alt="Hafidz Ar Rofi" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Hafidz Ar Rofi</h3>
@@ -118,13 +125,52 @@
                     </div>
                 </div>
                 <!-- Team Member 6 -->
-                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50">
+                <div class="group developer-card bg-[#242424] rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#D7FD52]/10 hover:border-[#D7FD52]/50 hover:-translate-y-2">
                     <div class="relative">
                         <img src="{{ asset('assets/teammember/nopal.jpg') }}" alt="Ekananda Naufal Arif W" class="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <div class="p-5 text-center">
                         <h3 class="text-white text-xl font-semibold mb-1 transition-colors duration-300 group-hover:text-[#D7FD52]">Ekananda Naufal Arif W</h3>
                         <p class="text-gray-400 text-sm">Frontend Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PENAMBAHAN: Visi & Misi Section (Awalnya tersembunyi) -->
+    <div id="vision-mission-section" class="main-kategori-content container mx-auto px-4 py-12 hidden" data-main-kategori="visi-misi">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-bold text-white mb-4">Visi & Misi <span class="text-[#D7FD52]">Topupin</span></h1>
+            <p class="text-gray-400">Tujuan dan komitmen kami untuk para gamer.</p>
+        </div>
+        <div class="max-w-4xl mx-auto space-y-12">
+            {{-- Visi --}}
+            <div>
+                <h2 class="text-3xl font-semibold text-center text-white mb-4">Visi Kami</h2>
+                <p class="text-center text-lg text-gray-300 leading-relaxed">
+                    Menjadi platform top-up game terdepan di Asia Tenggara yang paling terpercaya, cepat, dan inovatif, serta menjadi sahabat bagi setiap gamer dalam perjalanan mereka.
+                </p>
+            </div>
+            {{-- Misi --}}
+            <div>
+                <h2 class="text-3xl font-semibold text-center text-white mb-6">Misi Kami</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-[#1a1a1a] p-6 rounded-lg">
+                        <i class="fas fa-bolt text-3xl text-[#D7FD52] mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Kecepatan & Kemudahan</h3>
+                        <p class="text-gray-400">Menyediakan proses transaksi yang instan dan antarmuka yang mudah digunakan di semua perangkat.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-6 rounded-lg">
+                        <i class="fas fa-shield-alt text-3xl text-[#D7FD52] mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Keamanan Terjamin</h3>
+                        <p class="text-gray-400">Menjamin keamanan setiap transaksi dan data pribadi pengguna dengan teknologi enkripsi terkini.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-6 rounded-lg">
+                        <i class="fas fa-users text-3xl text-[#D7FD52] mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Komunitas Gamer</h3>
+                        <p class="text-gray-400">Membangun komunitas yang solid dengan menyediakan konten relevan dan mendukung acara-acara e-sports.</p>
                     </div>
                 </div>
             </div>
@@ -216,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- Logika Filter Utama (SEMUA / TIM) ---
+    // --- Logika Filter Utama (SEMUA / TIM / VISI MISI) ---
     const mainCategoryButtons = document.querySelectorAll('.main-kategori-btn');
     const mainContentSections = document.querySelectorAll('.main-kategori-content');
     mainCategoryButtons.forEach(button => {
@@ -245,7 +291,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const genreFilterContainer = document.getElementById('genre-filters');
     const gameCards = document.querySelectorAll('.game-card-filterable');
 
-    // PERBAIKAN: Fungsi untuk menerapkan style tombol genre
     function applyGenreButtonStyles() {
         if (!genreFilterContainer) return;
         const activeClasses = ['bg-[#D7FD52]', 'text-black'];
@@ -269,17 +314,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const clickedButton = event.target;
             const filterGenre = clickedButton.dataset.genre;
 
-            // PERBAIKAN: Logika untuk memindahkan kelas 'active'
             const currentActiveButton = genreFilterContainer.querySelector('.genre-btn.active');
             if (currentActiveButton) {
                 currentActiveButton.classList.remove('active');
             }
             clickedButton.classList.add('active');
 
-            // Terapkan style baru ke semua tombol
             applyGenreButtonStyles();
 
-            // Terapkan filter ke kartu game
             gameCards.forEach(card => {
                 const cardGenre = card.dataset.genre;
                 if (filterGenre === 'semua' || cardGenre === filterGenre) {
@@ -289,7 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-        // Panggil fungsi untuk mengatur style awal yang benar saat halaman dimuat
         applyGenreButtonStyles();
     }
 

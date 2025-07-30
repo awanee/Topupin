@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Category; // Import model Category
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File; // DIUBAH: Menggunakan File facade untuk hapus manual
+use Illuminate\Support\Facades\File;
 
 class GameController extends Controller
 {
@@ -23,7 +24,9 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('admin.games.create');
+        // PERBAIKAN: Mengambil semua kategori untuk ditampilkan di form
+        $categories = Category::all();
+        return view('admin.games.create', compact('categories'));
     }
 
     /**
@@ -31,33 +34,37 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:games',
+        $request->validate([
+            'name' => 'required|string|max:255|unique:games,name',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'needs_server_id' => 'required|boolean',
+            'category_id' => 'required|exists:categories,id', // Validasi input kategori
         ]);
 
-        $game = new Game($validatedData);
-        $game->slug = $request->slug ? Str::slug($request->slug, '-') : Str::slug($request->name, '-');
+        $game = new Game();
+        $game->name = $request->name;
+        $game->slug = Str::slug($request->name, '-');
+        $game->needs_server_id = $request->needs_server_id;
 
-        // DIUBAH: Menggunakan metode move() ke folder public/assets/logogame
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $filename = 'thumbnail_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('assets/logogame'), $filename);
-            $game->thumbnail = $filename; // Hanya simpan nama file
+            $game->thumbnail = $filename;
         }
 
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
             $filename = 'logo_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('assets/logogame'), $filename);
-            $game->logo = $filename; // Hanya simpan nama file
+            $game->logo = $filename;
         }
 
-        $game->save();
+        $game->save(); // Simpan game terlebih dahulu
+
+        // PERBAIKAN: Tautkan game dengan kategori yang dipilih
+        $game->categories()->attach($request->category_id);
 
         return redirect()->route('admin.games.index')->with('success', 'Game berhasil ditambahkan.');
     }
@@ -67,7 +74,9 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        return view('admin.games.edit', compact('game'));
+        // PERBAIKAN: Mengambil semua kategori untuk ditampilkan di form
+        $categories = Category::all();
+        return view('admin.games.edit', compact('game', 'categories'));
     }
 
     /**
@@ -75,20 +84,19 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:games,slug,' . $game->id,
+        $request->validate([
+            'name' => 'required|string|max:255|unique:games,name,' . $game->id,
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'needs_server_id' => 'required|boolean',
+            'category_id' => 'required|exists:categories,id', // Validasi input kategori
         ]);
 
-        $game->fill($validatedData);
-        $game->slug = $request->slug ? Str::slug($request->slug, '-') : Str::slug($request->name, '-');
+        $game->name = $request->name;
+        $game->needs_server_id = $request->needs_server_id;
+        // Slug tidak diubah untuk menjaga konsistensi URL
 
-        // DIUBAH: Logika update file di folder public
         if ($request->hasFile('thumbnail')) {
-            // Hapus file lama jika ada
             if ($game->thumbnail && File::exists(public_path('assets/logogame/' . $game->thumbnail))) {
                 File::delete(public_path('assets/logogame/' . $game->thumbnail));
             }
@@ -108,7 +116,10 @@ class GameController extends Controller
             $game->logo = $filename;
         }
 
-        $game->save();
+        $game->save(); // Simpan perubahan pada game
+
+        // PERBAIKAN: Sinkronkan kategori game dengan yang dipilih
+        $game->categories()->sync($request->category_id);
 
         return redirect()->route('admin.games.index')->with('success', 'Game berhasil diperbarui.');
     }
@@ -118,7 +129,6 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        // DIUBAH: Logika hapus file dari folder public
         if ($game->thumbnail && File::exists(public_path('assets/logogame/' . $game->thumbnail))) {
             File::delete(public_path('assets/logogame/' . $game->thumbnail));
         }

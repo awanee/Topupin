@@ -24,8 +24,22 @@
             {{-- Slug --}}
             <div>
                 <label for="slug" class="block text-sm font-medium text-gray-300 mb-1">Slug (URL)</label>
-                <input type="text" name="slug" id="slug" value="{{ old('slug', $game->slug) }}" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white" required>
-                @error('slug')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
+                <input type="text" name="slug" id="slug" value="{{ $game->slug }}" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-gray-400 cursor-not-allowed" readonly>
+                <p class="text-xs text-gray-500 mt-1">Slug tidak dapat diubah setelah dibuat.</p>
+            </div>
+
+             {{-- Pilihan Kategori --}}
+            <div>
+                <label for="category_id" class="block text-sm font-medium text-gray-300 mb-1">Kategori Game</label>
+                <select name="category_id" id="category_id" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white">
+                    @foreach($categories as $category)
+                        {{-- Memeriksa apakah kategori ini adalah kategori yang sudah dimiliki game --}}
+                        <option value="{{ $category->id }}" {{ $game->categories->contains($category->id) ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('category_id')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
             </div>
 
             {{-- Upload Thumbnail --}}

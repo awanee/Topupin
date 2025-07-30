@@ -21,12 +21,18 @@
                 @error('name')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
             </div>
 
-            {{-- Slug --}}
+             {{-- Pilihan Kategori --}}
             <div>
-                <label for="slug" class="block text-sm font-medium text-gray-300 mb-1">Slug (URL)</label>
-                <input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-lime-400" required>
-                <p class="text-xs text-gray-500 mt-1">Contoh: mobile-legends, valorant (huruf kecil, tanpa spasi, gunakan tanda hubung)</p>
-                @error('slug')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
+                <label for="category_id" class="block text-sm font-medium text-gray-300 mb-1">Kategori Game</label>
+                <select name="category_id" id="category_id" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-3 py-2 text-white">
+                    <option value="">-- Pilih Kategori --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('category_id')<p class="text-red-400 text-xs mt-1">{{ $message }}</p>@enderror
             </div>
 
             {{-- Upload Thumbnail --}}
